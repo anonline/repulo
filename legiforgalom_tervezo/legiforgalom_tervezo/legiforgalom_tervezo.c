@@ -2,6 +2,7 @@
 #include <conio.h>
 
 #define MAX 128
+#define ADATOK "repulo.csv"
 
 typedef struct Data {
 	int jaratszam;
@@ -18,7 +19,7 @@ typedef struct Data {
 
 void fajlellenorzes(){
 	printf("Fajl ellenorzese...\n\n");
-	FILE *txt = fopen("repulo.csv", "r");
+	FILE *txt = fopen(ADATOK, "r");
 	
 	if (txt == NULL) 
 		{ 
@@ -39,13 +40,23 @@ void fajlellenorzes(){
 Data *listaletrehoz(){
 	Data *l = NULL;
 	int i;
+	char seged[1024];
+	FILE *fajl;
 
-	for (i = 0; i<=7; ++i){
-		Data *u = (Data*)malloc(sizeof(Data));
-		u->kov = l;
-		u->jaratszam = 1;
-		l = u;
-	}
+	fajl = fopen(ADATOK, "r");
+
+	while (fgets(seged,1024,fajl))
+		{
+			for (i = 0; i != srtlen(seged); i++){
+
+
+			}
+
+			Data *u = (Data*)malloc(sizeof(Data));
+			u->kov = l;
+			u->jaratszam = 1;
+			l = u;
+		}
 	return l;
 }
 

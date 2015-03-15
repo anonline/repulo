@@ -1,13 +1,16 @@
-﻿Build started 2015.03.15. 10:57:56.
+﻿Build started 2015.03.15. 11:33:02.
      1>Project "D:\Játékok és mentések\Visual Studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt legiforgalom_tervezo.c
          legiforgalom_tervezo.c
-     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
-     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(27): warning C4013: 'exit' undefined; assuming extern returning int
-     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(34): warning C4013: 'system' undefined; assuming extern returning int
-     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(44): warning C4013: 'malloc' undefined; assuming extern returning int
+     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(28): warning C4013: 'exit' undefined; assuming extern returning int
+     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(35): warning C4013: 'system' undefined; assuming extern returning int
+     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(46): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(51): warning C4013: 'malloc' undefined; assuming extern returning int
+     1>d:\játékok és mentések\visual studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(42): warning C4101: 'i' : unreferenced local variable
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Játékok és mentések\Visual Studio\legiforgalom_tervezo\Debug\legiforgalom_tervezo.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Játékok és mentések\Visual Studio\legiforgalom_tervezo\Debug\legiforgalom_tervezo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Játékok és mentések\Visual Studio\legiforgalom_tervezo\Debug\legiforgalom_tervezo.lib" /MACHINE:X86 Debug\legiforgalom_tervezo.obj
          legiforgalom_tervezo.vcxproj -> D:\Játékok és mentések\Visual Studio\legiforgalom_tervezo\Debug\legiforgalom_tervezo.exe
@@ -15,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.57
+Time Elapsed 00:00:00.56
