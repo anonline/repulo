@@ -1,0 +1,1 @@
+repulogep_tervezo.exe doksi.txt
