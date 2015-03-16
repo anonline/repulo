@@ -77,6 +77,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="legiforgalom_tervezo.c" />
+    <ClCompile Include="strsep.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="repulo.csv">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Text</FileType>
+    </ClInclude>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

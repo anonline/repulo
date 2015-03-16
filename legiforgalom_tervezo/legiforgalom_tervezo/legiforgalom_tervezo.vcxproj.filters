@@ -18,5 +18,13 @@
     <ClCompile Include="legiforgalom_tervezo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="strsep.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="repulo.csv">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
