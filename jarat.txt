@@ -1,1 +1,4 @@
-1820;Berlin;Budapest;12:31;14:51;300;1,2,3;	
+járatszám	honnan	hova	indul	érekezik	km	osztályok
+1820	Berlin	Budapest	12:31	14:51	300	1,2,3
+2030	Budapes	Bécs	9:00		9:50	140	1,2
+2040	Budapes	Bécs	10:10		11:00	140	1,2,3
