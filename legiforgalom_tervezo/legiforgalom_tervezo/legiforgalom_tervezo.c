@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 #define MAX 128
 #define ADATOK "repulo.csv"
 
@@ -34,7 +33,7 @@ void fajlellenorzes(){
 		{
 			printf("Az ellenõrzés sikeres, a fájl létezik!");
 			fclose(txt);
-			getchar();
+			//getchar();
 			system("cls");
 		}
 	
@@ -113,9 +112,36 @@ void set_charset(){						//Ékezetes karakterek hálleluja
 
 void main()
 {
+	int akt_menu_elem;
+
 	set_charset();
 	fajlellenorzes();
 	Data *lis = listaletrehoz();
-	listakiir(lis);
-	getchar();
+	//listakiir(lis);
+
+	do
+	{
+		akt_menu_elem = menu();
+		
+		system("cls");
+
+		switch (akt_menu_elem)
+		{
+		case 1:
+			listakiir(lis);
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			exit(0);
+			break;
+		}
+
+		getchar();
+		system("cls");
+	} while (1==1);
 }

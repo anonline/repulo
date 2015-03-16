@@ -77,6 +77,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="legiforgalom_tervezo.c" />
+    <ClCompile Include="menu.c" />
     <ClCompile Include="strsep.c" />
   </ItemGroup>
   <ItemGroup>

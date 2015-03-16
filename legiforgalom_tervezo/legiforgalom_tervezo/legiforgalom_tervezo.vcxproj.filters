@@ -19,7 +19,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="strsep.c">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
