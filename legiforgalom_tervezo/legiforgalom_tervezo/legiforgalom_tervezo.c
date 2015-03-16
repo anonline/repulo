@@ -58,14 +58,14 @@ Data *listaletrehoz(){
 
 		i = 0;
 		running = (seged);
-		for (p = strsep(*running, ";"); p != NULL;)						//strtok: tokenek alapján "szétdarabolja" a 
+		for (p = strsep(running, ";"); p != NULL; p = strsep(NULL, ";"))											//strtok: tokenek alapján "szétdarabolja" a 
 		{																					//stringet és visszatér a token helyének 
 			strcpy(seged2, p);																//pointerével
 
 			switch (i)
 			{
 				case 0:
-					u->jaratszam = atoi(p);
+					u->jaratszam = atoi(p);													//Ha nincs járatszám 0-val tér vissza
 					break;
 				case 1:
 					strcpy(u->repter1, seged2);
