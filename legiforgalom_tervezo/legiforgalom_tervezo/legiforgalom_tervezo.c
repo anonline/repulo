@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define MAX 128
 #define ADATOK "repulo.csv"
@@ -173,6 +174,38 @@ void jaratszamkereses(Data *lista)					//Keressük meg a járatunkat
 
 }
 
+void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ oldalon
+{
+	Data *iter = lista;		
+	char repternev[MAX];												//Ebbe bekérek
+	int vane = 0;														//Õ csak azért van hogy segítsen eldönteni, hogy létezik-e amit beírtak...
+
+	printf("Kérem adja meg a keresett reptér nevét: "); getline(repternev, 127);		//Bekér
+	
+	for (iter = lista; iter != NULL; iter = iter->kov)
+	{
+		if (!strcmp(iter->repter1, repternev) || !strcmp(iter->repter2, repternev))		//Ha van akkor kiirat, plusz átállítja a változót 1-re
+		{
+			printf("Járatszám: [%d]\n", iter->jaratszam);
+			printf("Honnan: [%s]\n", iter->repter1);
+			printf("Hová: [%s]\n", iter->repter2);
+			printf("Távolság: [%.2f km]\n", iter->tavolsag);
+			printf("Osztályok: [%s]\n\n", iter->osztalyok);
+
+			vane = 1;
+		}
+	}
+	if (vane == 0) printf("Nincs ilyen nevû reptér !");									//Ha nincs akkor kiírja hogy bukta
+
+}
+
+void ido()										//Lekérdezi az idõt és a dátumot
+{												//Valahogy majd visszatérési értének kellene használni, még nem jöttem rá hogyan !
+	time_t t;									//(De kezdek agysorvadást kapni a mai napra !)
+	t = time(NULL);
+	printf("%s\n", ctime(&t));
+}
+
 void main()
 {
 	int akt_menu_elem;
@@ -191,12 +224,14 @@ void main()
 		switch (akt_menu_elem)
 		{
 		case 1:
+			ido();
 			listakiir(lis);
 			break;
 		case 2:
 			
 			break;
 		case 3:
+			repterkereses(lis);
 			break;
 		case 4:
 			jaratszamkereses(lis);
