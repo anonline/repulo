@@ -58,24 +58,24 @@ int egesze(char s[])
 		return 1;
 }
 
-void fajlellenorzes(){										
+void fajlellenorzes(){
 	printf("Fájl ellenõrzése...\n");
 	FILE *txt = fopen(ADATOK, "r");
-	
-	if (txt == NULL) 
-		{ 
-			printf("Hiba történt a fájl beolvasása közben!\nKérem ellenõrizze a fájlt!");
-			getchar();
-			exit(0);
-		}
-	else 
-		{
-			printf("Az ellenõrzés sikeres, a fájl létezik!");
-			fclose(txt);
-			//getchar();
-			system("cls");
-		}
-	
+
+	if (txt == NULL)
+	{
+		printf("Hiba történt a fájl beolvasása közben!\nKérem ellenõrizze a fájlt!");
+		getchar();
+		exit(0);
+	}
+	else
+	{
+		printf("Az ellenõrzés sikeres, a fájl létezik!");
+		fclose(txt);
+		//getchar();
+		system("cls");
+	}
+
 }
 
 Data *listaletrehoz(){
@@ -89,7 +89,7 @@ Data *listaletrehoz(){
 
 	fajl = fopen(ADATOK, "r");
 
-	while (fgets(seged,1024,fajl))											//file olvasás
+	while (fgets(seged, 1024, fajl))											//file olvasás
 	{
 		Data *u = (Data*)malloc(sizeof(Data));
 		u->kov = l;
@@ -102,22 +102,22 @@ Data *listaletrehoz(){
 
 			switch (i)
 			{
-				case 0:
-					u->jaratszam = atoi(p);													//Ha nincs járatszám 0-val tér vissza
-					break;
-				case 1:
-					strcpy(u->repter1, seged2);
-					break;
-				case 2:
-					strcpy(u->repter2, seged2);
-					break;
-				case 3:
-					u->tavolsag = atof(p);
-					break;
-				case 4:
-					strtok(seged2, "\n");
-					strcpy(u->osztalyok, seged2);
-					break;
+			case 0:
+				u->jaratszam = atoi(p);													//Ha nincs járatszám 0-val tér vissza
+				break;
+			case 1:
+				strcpy(u->repter1, seged2);
+				break;
+			case 2:
+				strcpy(u->repter2, seged2);
+				break;
+			case 3:
+				u->tavolsag = atof(p);
+				break;
+			case 4:
+				strtok(seged2, "\n");
+				strcpy(u->osztalyok, seged2);
+				break;
 			default:
 				break;
 			}
@@ -176,17 +176,17 @@ void jaratszamkereses(Data *lista)					//Keressük meg a járatunkat
 
 void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ oldalon
 {
-	Data *iter = lista;		
+	Data *iter = lista;
 	char repternev[MAX];												//Ebbe bekérek
 	int vane = 0;														//Õ csak azért van hogy segítsen eldönteni, hogy létezik-e amit beírtak...
 
 	printf("Kérem adja meg a keresett reptér nevét: "); getline(repternev, 127);		//Bekér
-	
+
 	for (iter = lista; iter != NULL; iter = iter->kov)
 	{
 		if (!strcmp(iter->repter1, repternev) || !strcmp(iter->repter2, repternev))		//Ha van akkor kiirat, plusz átállítja a változót 1-re
-		{
-			printf("Járatszám: [%d]\n", iter->jaratszam);
+		{																				//Nagy betûs kezdésre illik figyelni vele,
+			printf("Járatszám: [%d]\n", iter->jaratszam);								//mert különben nem talál semmit, ha nem pontosan írjuk be amit akarunk !
 			printf("Honnan: [%s]\n", iter->repter1);
 			printf("Hová: [%s]\n", iter->repter2);
 			printf("Távolság: [%.2f km]\n", iter->tavolsag);
@@ -218,7 +218,7 @@ void main()
 	do
 	{
 		akt_menu_elem = menu();
-		
+
 		system("cls");
 
 		switch (akt_menu_elem)
@@ -228,7 +228,7 @@ void main()
 			listakiir(lis);
 			break;
 		case 2:
-			
+
 			break;
 		case 3:
 			repterkereses(lis);
@@ -243,5 +243,5 @@ void main()
 
 		getchar();
 		system("cls");
-	} while (1==1);
+	} while (1 == 1);
 }
