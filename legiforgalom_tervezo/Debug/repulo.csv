@@ -1,3 +1,351 @@
-1;;3;1.7;2
-123;4324;120;5345;1
-43234;Budapest;New York;87465.76;1,2,3
+0;Sao Paulo;Tokió;6702;3
+1;Pozsony;Buenos Aires;5862;3
+2;Manila;Lagos;4815;3
+3;Beijing;Karachi;2892;3
+4;Isztambul;Teherán;2117;3
+5;Beijing;Shanghai;6487;2,3
+6;Mumbai (Bombay);Kairó;5429;3
+7;Sao Paulo;Kairó;9963;3
+8;Colorado;Kairó;5553;3
+9;Los Angeles;Lagos;6538;2
+10;Mexico City;Karachi;9092;3
+11;Miami;Lagos;3746;3
+12;New York City;Jakarta;9784;3
+13;Delhi;Tokió;6475;3
+14;Moszkva;Teherán;8008;3
+15;Lagos;Tokió;2418;1,3
+16;Mexico City;Jakarta;6208;3
+17;Buenos Aires;Tokió;5493;3
+18;Párizs;Szöul;9917;1,2,3
+19;Bukarest;Budapest;3461;3
+20;Lagos;Jakarta;4879;3
+21;Bécs;Manila;1097;2
+22;Mexico City;Budapest;7696;3
+23;Varsó;Kairó;6857;3
+24;Jakarta;Teherán;751;3
+25;New York City;Manila;4699;2,3
+26;Bern;Karachi;7534;3
+27;Bern;Teherán;1335;3
+28;Mexico City;Kairó;6572;3
+29;Delhi;Shanghai;4420;2
+30;Teherán;Buenos Aires;8717;2,3
+31;Bukarest;Shanghai;4636;3
+32;Róma;Kairó;6235;2
+33;New York City;Kairó;563;2
+34;Budapest;Jakarta;3498;3
+35;Shanghai;Teherán;704;3
+36;Karachi;Kairó;9143;3
+37;Lima;Karachi;645;1
+38;Kairó;Buenos Aires;2349;2,3
+39;Athén;Jakarta;9319;2
+40;Isztambul;Lagos;3770;1,3
+41;Párizs;Jakarta;3226;2,3
+42;Athén;Teherán;965;1,3
+43;Jakarta;Lagos;7255;3
+44;Moszkva;Budapest;9048;3
+45;Moszkva;Karachi;7122;2
+46;Berlin;Jakarta;2810;3
+47;Karachi;Jakarta;7229;3
+48;Bécs;Szöul;9677;3
+49;Teherán;Lagos;4764;3
+50;Beijing;Teherán;5104;2,3
+51;Isztambul;Jakarta;8098;3
+52;Manila;Jakarta;4347;1,3
+53;Szöul;Teherán;5074;2,3
+54;Miami;Shanghai;8410;1,2,3
+55;Tokió;Karachi;1706;3
+56;Lima;Teherán;5843;2,3
+57;Kairó;Tokió;8132;2
+58;New York City;Karachi;6695;3
+59;Moszkva;Kairó;6301;3
+60;Bukarest;Jakarta;7692;1,2
+61;Grönland;Manila;4503;1,3
+62;Miami;Budapest;5049;3
+63;Kairó;Manila;5744;3
+64;Manila;Kairó;9956;3
+65;Karachi;Szöul;6007;2,3
+66;Bukarest;Kairó;577;2
+67;Róma;Teherán;7774;2
+68;Los Angeles;Szöul;5309;2
+69;London;Shanghai;7720;3
+70;Szöul;Shanghai;6308;1,3
+71;Bern;Buenos Aires;4596;2
+72;Jakarta;Tokió;1603;3
+73;New York City;Szöul;536;3
+74;Manila;Tokió;2126;3
+75;Tokió;Shanghai;7905;2,3
+76;Beijing;Jakarta;3016;3
+77;Shanghai;Budapest;1901;1,3
+78;Mumbai (Bombay);Karachi;4779;2
+79;Lima;Tokió;2162;3
+80;Isztambul;Budapest;9444;3
+81;Berlin;Buenos Aires;8703;3
+82;Bern;Lagos;2291;2,3
+83;Isztambul;Karachi;8104;2,3
+84;Beijing;Budapest;7907;1
+85;Pozsony;Karachi;4121;3
+86;Tokió;Teherán;8424;2,3
+87;Szöul;Buenos Aires;3740;3
+88;Los Angeles;Teherán;2452;3
+89;Washington D.C.;Buenos Aires;950;3
+90;Shanghai;Lagos;3457;1,3
+91;Colorado;Karachi;6464;2
+92;Mumbai (Bombay);Szöul;9043;3
+93;Teherán;Shanghai;5364;2,3
+94;Sao Paulo;Teherán;3468;2
+95;Beijing;Szöul;3439;3
+96;Berlin;Shanghai;4404;3
+97;Beijing;Lagos;2010;3
+98;Isztambul;Tokió;1895;2
+99;Colorado;Lagos;867;1,3
+100;Sao Paulo;Jakarta;7190;3
+101;Mexico City;Buenos Aires;7015;2,3
+102;Washington D.C.;Budapest;4061;3
+103;Szöul;Karachi;3049;3
+104;Washington D.C.;Tokió;8403;1,2,3
+105;Sao Paulo;Karachi;6004;3
+106;Bukarest;Tokió;5191;3
+107;Buenos Aires;Szöul;8241;1
+108;Grönland;Buenos Aires;3237;1,3
+109;Pozsony;Szöul;9349;3
+110;Bukarest;Manila;2873;2,3
+111;Beijing;Manila;1434;2
+112;Jakarta;Buenos Aires;6374;2
+113;Bukarest;Teherán;8462;2,3
+114;Berlin;Teherán;627;3
+115;Grönland;Budapest;8212;3
+116;Lagos;Buenos Aires;5756;3
+117;Mumbai (Bombay);Jakarta;4913;1,3
+118;Budapest;Manila;1645;1,2
+119;Karachi;Tokió;8580;3
+120;Párizs;Shanghai;1808;3
+121;Colorado;Shanghai;4615;2,3
+122;Lagos;Teherán;6385;3
+123;Berlin;Tokió;2922;1
+124;Los Angeles;Jakarta;8130;1,3
+125;Pozsony;Manila;2745;3
+126;Mexico City;Manila;757;1,2
+127;Sao Paulo;Lagos;1795;2,3
+128;Budapest;Karachi;7818;3
+129;Róma;Karachi;4420;2,3
+130;Delhi;Manila;4867;3
+131;Miami;Karachi;8315;3
+132;Grönland;Shanghai;1948;2,3
+133;Róma;Budapest;8579;1,3
+134;Mumbai (Bombay);Tokió;2592;2,3
+135;Tokió;Jakarta;6815;2
+136;Párizs;Budapest;2345;3
+137;Lima;Shanghai;7944;3
+138;London;Jakarta;765;2,3
+139;Isztambul;Kairó;4210;2
+140;Sao Paulo;Budapest;4033;2,3
+141;Delhi;Teherán;6212;2
+142;Moszkva;Tokió;2509;3
+143;Lima;Budapest;4434;3
+144;Teherán;Budapest;1329;3
+145;Budapest;Lagos;6950;3
+146;Lima;Manila;5816;3
+147;Varsó;Tokió;8888;3
+148;Buenos Aires;Lagos;5345;3
+149;Teherán;Szöul;8762;2
+150;Kairó;Lagos;2289;3
+151;Karachi;Budapest;4879;2,3
+152;Delhi;Karachi;3574;3
+153;Athén;Budapest;6515;3
+154;Shanghai;Kairó;4400;1
+155;New York City;Lagos;4441;3
+156;Tokió;Lagos;1161;3
+157;Mexico City;Lagos;8747;3
+158;Berlin;Szöul;7583;3
+159;Bécs;Budapest;3498;3
+160;Miami;Jakarta;9880;3
+161;Mumbai (Bombay);Lagos;7575;3
+162;Szöul;Kairó;1458;3
+163;Moszkva;Jakarta;6112;3
+164;Lima;Jakarta;8861;2,3
+165;Kairó;Jakarta;2551;3
+166;Miami;Manila;811;3
+167;Mumbai (Bombay);Shanghai;6100;2,3
+168;Karachi;Shanghai;7229;2,3
+169;Los Angeles;Kairó;9211;3
+170;Washington D.C.;Szöul;9677;1,2,3
+171;Pozsony;Teherán;6701;2,3
+172;Beijing;Kairó;4787;3
+173;Colorado;Manila;8723;3
+174;Washington D.C.;Jakarta;9206;3
+175;Grönland;Karachi;6662;2
+176;Szöul;Lagos;6919;3
+177;Varsó;Buenos Aires;9676;2
+178;Isztambul;Buenos Aires;6940;2
+179;Lagos;Kairó;6972;3
+180;Mexico City;Shanghai;9448;2,3
+181;Grönland;Teherán;665;3
+182;Isztambul;Szöul;7897;3
+183;Teherán;Jakarta;3311;3
+184;New York City;Buenos Aires;5453;3
+185;Karachi;Lagos;4301;3
+186;Colorado;Szöul;3001;1,3
+187;Mumbai (Bombay);Budapest;5687;2,3
+188;Buenos Aires;Teherán;6222;3
+189;Róma;Manila;5320;2
+190;Teherán;Karachi;182;3
+191;Lima;Lagos;8548;3
+192;Manila;Teherán;939;3
+193;Mexico City;Teherán;4852;2
+194;Lagos;Manila;4497;3
+195;Bécs;Tokió;4647;2,3
+196;Shanghai;Jakarta;659;1,2
+197;Bécs;Karachi;4255;3
+198;Budapest;Kairó;8129;3
+199;Karachi;Manila;4303;3
+200;Karachi;Buenos Aires;431;2
+201;Bécs;Buenos Aires;5853;3
+202;Delhi;Budapest;9929;2
+203;Moszkva;Manila;4329;2,3
+204;Mumbai (Bombay);Teherán;5070;2
+205;Los Angeles;Manila;7869;3
+206;Bécs;Kairó;1925;3
+207;Washington D.C.;Shanghai;6411;3
+208;Sao Paulo;Shanghai;7663;1
+209;Mexico City;Tokió;7804;3
+210;London;Teherán;1814;2,3
+211;Lima;Kairó;5605;3
+212;Budapest;Shanghai;9394;3
+213;New York City;Budapest;1102;3
+214;Pozsony;Kairó;3777;3
+215;Teherán;Kairó;2027;3
+216;Lima;Buenos Aires;5407;3
+217;Karachi;Teherán;8472;2
+218;Párizs;Buenos Aires;4133;3
+219;Tokió;Manila;5376;3
+220;Beijing;Buenos Aires;6855;3
+221;Bern;Kairó;8618;3
+222;Lagos;Szöul;3349;3
+223;Shanghai;Manila;337;3
+224;Jakarta;Manila;2078;3
+225;Szöul;Budapest;5387;3
+226;Budapest;Teherán;3214;2
+227;Delhi;Lagos;8851;2,3
+228;Buenos Aires;Budapest;2800;1
+229;Grönland;Lagos;2041;2
+230;Shanghai;Karachi;9880;3
+231;Mumbai (Bombay);Buenos Aires;8166;3
+232;London;Szöul;7409;2,3
+233;Athén;Tokió;3085;2
+234;Kairó;Teherán;3739;2,3
+235;New York City;Tokió;536;3
+236;Manila;Buenos Aires;2480;3
+237;Athén;Karachi;6019;2
+238;Los Angeles;Buenos Aires;1947;3
+239;Los Angeles;Shanghai;6685;3
+240;Bern;Szöul;3842;3
+241;Miami;Szöul;2316;3
+242;Miami;Kairó;8685;2,3
+243;Budapest;Buenos Aires;7723;3
+244;Colorado;Jakarta;4569;3
+245;Sao Paulo;Buenos Aires;2746;3
+246;Róma;Shanghai;9825;3
+247;Kairó;Karachi;3241;3
+248;Berlin;Lagos;6041;3
+249;Varsó;Manila;3612;2
+250;Tokió;Szöul;8802;3
+251;Bern;Shanghai;6145;2
+252;Varsó;Karachi;6198;2,3
+253;Manila;Budapest;9412;2
+254;Washington D.C.;Kairó;9388;2,3
+255;New York City;Shanghai;6152;1,3
+256;Delhi;Kairó;2692;2
+257;Manila;Szöul;6630;2,3
+258;Tokió;Kairó;7144;2,3
+259;Kairó;Shanghai;1186;3
+260;Mexico City;Szöul;6997;3
+261;Róma;Jakarta;2834;3
+262;Shanghai;Buenos Aires;9312;1,3
+263;Manila;Karachi;3256;2,3
+264;Bukarest;Karachi;4459;3
+265;Bukarest;Lagos;5069;3
+266;Sao Paulo;Szöul;9961;1,3
+267;Tokió;Budapest;1902;3
+268;Róma;Szöul;5851;2,3
+269;London;Manila;4110;3
+270;Szöul;Jakarta;9152;1,2
+271;Colorado;Teherán;6743;3
+272;Pozsony;Shanghai;4935;2,3
+273;Mumbai (Bombay);Manila;2972;2
+274;Teherán;Manila;521;3
+275;Bécs;Shanghai;8496;3
+276;Moszkva;Shanghai;5120;2
+277;Grönland;Kairó;8473;3
+278;Berlin;Budapest;3180;3
+279;Tokió;Buenos Aires;8094;1,3
+280;London;Karachi;9747;3
+281;Grönland;Tokió;2379;1,2,3
+282;Bécs;Teherán;3895;3
+283;Varsó;Budapest;7541;3
+284;Jakarta;Szöul;9151;2
+285;Grönland;Szöul;7029;3
+286;Pozsony;Lagos;6105;3
+287;Shanghai;Szöul;2652;3
+288;Buenos Aires;Shanghai;1083;2,3
+289;Delhi;Buenos Aires;1552;2,3
+290;Varsó;Teherán;7544;1,2,3
+291;Párizs;Tokió;5890;3
+292;Bécs;Lagos;7755;1,3
+293;Washington D.C.;Manila;7763;1
+294;Bécs;Jakarta;9066;1,2
+295;Varsó;Shanghai;6928;2,3
+296;Buenos Aires;Karachi;1575;1
+297;Budapest;Tokió;1631;2,3
+298;Athén;Kairó;6171;2,3
+299;Berlin;Kairó;2623;2,3
+300;Lagos;Budapest;7712;3
+301;Delhi;Jakarta;2997;3
+302;Budapest;Szöul;2323;3
+303;Grönland;Jakarta;2985;3
+304;Varsó;Szöul;2778;3
+305;London;Lagos;7582;3
+306;Los Angeles;Budapest;292;3
+307;Colorado;Budapest;1417;3
+308;Párizs;Manila;6034;3
+309;Isztambul;Manila;7521;3
+310;London;Buenos Aires;4983;2,3
+311;Jakarta;Kairó;8969;3
+312;Jakarta;Shanghai;8140;3
+313;Moszkva;Szöul;5356;3
+314;London;Tokió;3424;1,3
+315;Róma;Lagos;2986;1,3
+316;Washington D.C.;Karachi;1154;3
+317;Szöul;Tokió;5138;2,3
+318;London;Kairó;3639;2,3
+319;Miami;Buenos Aires;1336;3
+320;Varsó;Lagos;9966;3
+321;Pozsony;Budapest;9116;3
+322;London;Budapest;2399;2
+323;Los Angeles;Karachi;8164;3
+324;Athén;Buenos Aires;2304;3
+325;Miami;Tokió;5693;3
+326;Róma;Buenos Aires;8819;3
+327;Kairó;Szöul;4062;3
+328;Bern;Tokió;5745;2
+329;Róma;Tokió;1337;3
+330;Berlin;Karachi;7824;3
+331;Athén;Lagos;8272;3
+332;Washington D.C.;Lagos;6538;2
+333;Miami;Teherán;9149;2,3
+334;Pozsony;Tokió;9451;2,3
+335;Isztambul;Shanghai;2713;3
+336;Bern;Manila;5261;1,2,3
+337;Párizs;Teherán;2320;3
+338;Buenos Aires;Manila;232;3
+339;Colorado;Tokió;1930;2
+340;Párizs;Lagos;8990;3
+341;Bern;Budapest;6608;2,3
+342;Delhi;Szöul;1510;2
+343;Párizs;Karachi;3762;2
+344;Athén;Szöul;3281;2
+345;Moszkva;Lagos;4486;2
+346;Pozsony;Jakarta;9773;1,2,3
+347;Jakarta;Budapest;6955;2
+348;Los Angeles;Tokió;8896;3
+349;Athén;Manila;1529;3
+350;Teherán;Tokió;5587;3

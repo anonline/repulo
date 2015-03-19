@@ -2,11 +2,14 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
+#include <time.h>
+
 
 #define MAX 128
 #define ADATOK "repulo.csv"
 #define HSZ sizeof(int)/sizeof(short)*5  /* 5 v 10 jegyu max az int meretetol fuggoen */
+
+char * kisbetusito(char str[]);
 
 typedef struct Data {
 	int jaratszam;
@@ -177,16 +180,35 @@ void jaratszamkereses(Data *lista)					//Keressük meg a járatunkat
 void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ oldalon
 {
 	Data *iter = lista;
-	char repternev[MAX];												//Ebbe bekérek
+	char repternev[MAX];															//Ebbe bekérek
+	char tmp[2][MAX];
 	int vane = 0;														//Õ csak azért van hogy segítsen eldönteni, hogy létezik-e amit beírtak...
 
-	printf("Kérem adja meg a keresett reptér nevét: "); getline(repternev, 127);		//Bekér
+
+
+
+	do
+	{
+		printf("Kérem adja meg a keresett reptér nevét: "); getline(repternev, 127);		//Bekér
+
+		//Ellenörzés, hogy írtak-e be valamit egyáltalán
+		if (strlen(repternev) < 1)
+		{
+			printf("\n\nNem írtál be semmit! Próbáld újra!\n\n");
+		}
+	} while (strlen(repternev) < 1);
+
+	kisbetusito(&repternev);
 
 	for (iter = lista; iter != NULL; iter = iter->kov)
 	{
-		if (!strcmp(iter->repter1, repternev) || !strcmp(iter->repter2, repternev))		//Ha van akkor kiirat, plusz átállítja a változót 1-re
-		{																				//Nagy betûs kezdésre illik figyelni vele,
-			printf("Járatszám: [%d]\n", iter->jaratszam);								//mert különben nem talál semmit, ha nem pontosan írjuk be amit akarunk !
+		//Ki kell menteni változóba mert a kisbetûsítõ függvénynek csak pointerrel tudod átadni a tömböt, így ha arra hívnám meg akkor a fõ listánkban változtatná meg a reptereket.
+		strcpy(tmp[0], iter->repter1);
+		strcpy(tmp[1], iter->repter2);
+
+		if (!strcmp(kisbetusito(tmp[0]), repternev) || !strcmp(kisbetusito(tmp[1]), repternev))		//Ha van akkor kiirat, plusz átállítja a változót 1-re
+		{																				
+			printf("Járatszám: [%d]\n", iter->jaratszam);								
 			printf("Honnan: [%s]\n", iter->repter1);
 			printf("Hová: [%s]\n", iter->repter2);
 			printf("Távolság: [%.2f km]\n", iter->tavolsag);
@@ -198,6 +220,103 @@ void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ ol
 	if (vane == 0) printf("Nincs ilyen nevû reptér !");									//Ha nincs akkor kiírja hogy bukta
 
 }
+void osztalyok_keresese(Data *lista)
+{
+	Data *iter = lista;
+	char keresendo_osztaly[MAX];					//ide megy amit keresünk
+	int talalat[MAX];
+	int helyes_input = 1;							//ciklus átengedõõ
+	int i, j;
+	int counter=0;									//találatot számol
+
+
+	//Hogy legyen valami szabály is
+	printf("Jelmagyarázat:\n1 : Prémium\n2 : Bussiness\n3 : Turista\n\n");
+
+	do
+	{
+		printf("Adja meg a keresett osztályokat közvetlenül egymás mellé írva (pl.: 123 -> mind a 3 osztály): ");
+		getline(keresendo_osztaly, (MAX - 1));
+
+		helyes_input = 1;
+
+		//Check input
+		if (strlen(keresendo_osztaly) > 0)
+		{
+			for (i = 0; i < strlen(keresendo_osztaly); i++)
+			{
+				//Ha nem egyezik 1-el,2-vel és 3-al 3 akkor ugye hibaüzenet
+				if (keresendo_osztaly[i] != '1' && keresendo_osztaly[i] != '2' && keresendo_osztaly[i] != '3')
+				{
+					helyes_input = 0;
+					printf("Helytelen karakter a %d. helyen!\nPróbáld újra!\n\n", i + 1);
+				}
+			}
+		}
+		else
+		{
+			helyes_input = 0;
+		}
+	} while (helyes_input == 0);
+
+
+	//Keresés maga
+
+	//végig a listán
+	for (iter = lista; iter != NULL; iter = iter->kov)
+	{
+		//végig a beírt számokon
+		for (i = 0; i < strlen(keresendo_osztaly); i++)
+		{
+			//A standard a csv-ben a 1,2,3 így végigmegyünk azokon is.
+			for (j = 0; j < strlen(iter->osztalyok); j++)
+			{
+				//ha van egyezés
+				if (iter->osztalyok[j]==keresendo_osztaly[i])								
+				{
+					//megnézzük, hogy aktuális járatot megtaláltuk-e már (ha pl egy járatnál több osztály van megadva)
+					if (array_contain(iter->jaratszam, &talalat, MAX) != 1)
+					{
+						//Ha nincs megtalálva, akkor felvesszük és kiiratjuk, így megspórolunk egy + ciklust.
+						talalat[counter] = iter->jaratszam;
+						counter=counter+1;
+
+						printf("Járatszám: [%d]\n", iter->jaratszam);
+						printf("Honnan: [%s]\n", iter->repter1);
+						printf("Hová: [%s]\n", iter->repter2);
+						printf("Távolság: [%.2f km]\n", iter->tavolsag);
+						printf("Osztályok: [%s]\n\n", iter->osztalyok);
+					}
+					
+				}
+			}
+		}
+	}
+}
+
+
+
+//Megnézi egy tömbben, hogy tartalmazza-e az aktuális elemet.
+int array_contain(int val, int *arr, int size){
+	int i;
+	for (i = 0; i < size; i++) {
+		if (arr[i] == val)
+			return 1;
+	}
+	return 0;
+}
+
+
+//egy stringet (char[]-t) kisbetûssé alakít
+char * kisbetusito(char str[])
+{
+	int i;
+
+	for (i = 0; str[i]; i++){
+		str[i] = tolower(str[i]);
+	}
+	return str;
+}
 
 void ido()										//Lekérdezi az idõt és a dátumot
 {												//Valahogy majd visszatérési értének kellene használni, még nem jöttem rá hogyan !
@@ -206,10 +325,20 @@ void ido()										//Lekérdezi az idõt és a dátumot
 	printf("%s\n", ctime(&t));
 }
 
+void flush_in(FILE *in)
+{
+	int ch;
+
+	do
+		ch = fgetc(in);
+	while (ch != EOF && ch != '\n');
+
+	clearerr(in);
+}
+
 void main()
 {
 	int akt_menu_elem;
-
 	set_charset();
 	fajlellenorzes();
 	Data *lis = listaletrehoz();
@@ -237,10 +366,13 @@ void main()
 			jaratszamkereses(lis);
 			break;
 		case 5:
+			osztalyok_keresese(lis);
+			break;
+		case 6:
 			exit(0);
 			break;
 		}
-
+		printf("\n\nNyomj egy <Enter>-t a menübe való visszatéréshez...");
 		getchar();
 		system("cls");
 	} while (1 == 1);
