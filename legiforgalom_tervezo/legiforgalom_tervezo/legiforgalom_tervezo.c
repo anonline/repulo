@@ -19,6 +19,8 @@ typedef struct Data {
 	//erkezes
 	double tavolsag;
 	char osztalyok[10];
+	char repter1_country[MAX];
+	char repter2_country[MAX];
 
 
 	struct Data *kov;
@@ -115,12 +117,19 @@ Data *listaletrehoz(){
 				strcpy(u->repter2, seged2);
 				break;
 			case 3:
-				u->tavolsag = atof(p);
+				strcpy(u->repter1_country, seged2);
 				break;
 			case 4:
+				strcpy(u->repter2_country, seged2);
+				break;
+			case 5:
+				u->tavolsag = atof(p);
+				break;
+			case 6:
 				strtok(seged2, "\n");
 				strcpy(u->osztalyok, seged2);
 				break;
+			
 			default:
 				break;
 			}
@@ -141,6 +150,8 @@ void listakiir(Data *lista){
 		printf("Járatszám: [%d]\n", iter->jaratszam);
 		printf("Honnan: [%s]\n", iter->repter1);
 		printf("Hová: [%s]\n", iter->repter2);
+		printf("Indulási ország: [%s]\n", iter->repter1_country);
+		printf("Érekzési ország: [%s]\n", iter->repter2_country);
 		printf("Távolság: [%.2f km]\n", iter->tavolsag);
 		printf("Osztályok: [%s]\n\n", iter->osztalyok);
 	}
@@ -220,6 +231,7 @@ void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ ol
 	if (vane == 0) printf("Nincs ilyen nevû reptér !");									//Ha nincs akkor kiírja hogy bukta
 
 }
+
 void osztalyok_keresese(Data *lista)
 {
 	Data *iter = lista;
@@ -294,7 +306,62 @@ void osztalyok_keresese(Data *lista)
 	}
 }
 
+void orszagkereses(Data *lista){
+	
+	char indule[MAX];													//Indulási vagy érkezési ország eldöntése
+	char orszag[MAX];													//Maga az ország neve
+	char tmp[2][MAX];													//kisbetusito fv használatához segédváltozo
+	Data *iter;
 
+
+	printf("Jelmagyarázat:\nI : Indulási ország\nE : Érkezési ország\n\n");
+	
+	do{																							//Bekér amíg nem i, vagy e
+		printf("Kerem adja meg a keresett pozíciót: "); getline(indule, MAX - 1);
+	} while (strcmp(kisbetusito(indule), "i") && strcmp(kisbetusito(indule), "e"));
+
+	printf("Kerem adja meg az ország nevét: "); getline(orszag, MAX - 1);						//Bekéri az országot
+
+	if (strcmp(indule, "i")==0)																	//Ha i akkor indulási országot keres és ír ki...
+	{	
+		for (iter = lista; iter != NULL; iter = iter->kov)
+		{
+			strcpy(tmp[0], iter->repter1_country);
+			strcpy(tmp[1], orszag);
+
+			if (strcmp(kisbetusito(tmp[0]), kisbetusito(tmp[1]))==0){
+				printf("Járatszám: [%d]\n", iter->jaratszam);
+				printf("Honnan: [%s]\n", iter->repter1);
+				printf("Hová: [%s]\n", iter->repter2);
+				printf("Indulási ország: [%s]\n", iter->repter1_country);
+				printf("Érekzési ország: [%s]\n", iter->repter2_country);
+				printf("Távolság: [%.2f km]\n", iter->tavolsag);
+				printf("Osztályok: [%s]\n\n", iter->osztalyok);
+			}
+		}
+
+	}
+	else																						//Ha nem i akkor erkezesi országot keres és ír ki...
+	{
+		for (iter = lista; iter != NULL; iter = iter->kov)
+		{
+			strcpy(tmp[0], iter->repter2_country);
+			strcpy(tmp[1], orszag);
+
+			if (strcmp(kisbetusito(tmp[0]), kisbetusito(tmp[1])) == 0){
+				printf("Járatszám: [%d]\n", iter->jaratszam);
+				printf("Honnan: [%s]\n", iter->repter1);
+				printf("Hová: [%s]\n", iter->repter2);
+				printf("Indulási ország: [%s]\n", iter->repter1_country);
+				printf("Érekzési ország: [%s]\n", iter->repter2_country);
+				printf("Távolság: [%.2f km]\n", iter->tavolsag);
+				printf("Osztályok: [%s]\n\n", iter->osztalyok);
+			}
+		}	
+	}
+
+
+}
 
 //Megnézi egy tömbben, hogy tartalmazza-e az aktuális elemet.
 int array_contain(int val, int *arr, int size){
@@ -305,7 +372,6 @@ int array_contain(int val, int *arr, int size){
 	}
 	return 0;
 }
-
 
 //egy stringet (char[]-t) kisbetûssé alakít
 char * kisbetusito(char str[])
@@ -357,18 +423,24 @@ void main()
 			listakiir(lis);
 			break;
 		case 2:
-
+			printf("OK");
 			break;
 		case 3:
 			repterkereses(lis);
 			break;
 		case 4:
-			jaratszamkereses(lis);
+			orszagkereses(lis);
 			break;
 		case 5:
-			osztalyok_keresese(lis);
+			printf("OK");
 			break;
 		case 6:
+			jaratszamkereses(lis);
+			break;
+		case 7:
+			osztalyok_keresese(lis);
+			break;
+		case 8:
 			exit(0);
 			break;
 		}

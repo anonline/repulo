@@ -10,7 +10,7 @@ int menu()
 	WORD regi_szin_attr;
 	CONSOLE_SCREEN_BUFFER_INFO console_backed_Info;
 
-	char fomenu[6][1024];
+	char fomenu[8][1024];
 	int i;
 	int code = 0;
 	int end=0;
@@ -19,16 +19,18 @@ int menu()
 	strcpy(fomenu[0], "Útvonaltervezés (még listakiir())");
 	strcpy(fomenu[1], "Jegyár kalkulátor");
 	strcpy(fomenu[2], "Reptér keresése");
-	strcpy(fomenu[3], "Járatszám keresése");
-	strcpy(fomenu[4], "Osztályok keresése");
-	strcpy(fomenu[5], "Kilépés");
+	strcpy(fomenu[3], "Ország keresése");
+	strcpy(fomenu[4], "Ido alapú keresés");
+	strcpy(fomenu[5], "Járatszám keresése");
+	strcpy(fomenu[6], "Osztályok keresése");
+	strcpy(fomenu[7], "Kilépés");
 
 	GetConsoleScreenBufferInfo(handler, &console_backed_Info);
 	regi_szin_attr = console_backed_Info.wAttributes;
 
 	while (1==1)
 	{
-		for (i = 0; i < 6; i++)
+		for (i = 0; i < 8; i++)
 		{
 			if (i == end)
 			{
@@ -57,12 +59,12 @@ int menu()
 			if (code == 72)
 			{
 				precheck = 0;
-				end = (end == 0) ? 5 : (end-1);
+				end = (end == 0) ? 7 : (end-1);
 			}
 			else if (code == 80)
 			{
 				precheck = 0;
-				end = (end == 5) ? 0 : (end+1);
+				end = (end == 7) ? 0 : (end+1);
 			}
 		}
 
