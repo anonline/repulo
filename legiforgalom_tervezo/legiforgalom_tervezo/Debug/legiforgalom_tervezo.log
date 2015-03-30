@@ -1,9 +1,82 @@
-﻿Build started 2015.03.23. 13:46:53.
-     1>Project "D:\Játékok és mentések\Visual Studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         legiforgalom_tervezo.vcxproj -> D:\Játékok és mentések\Visual Studio\legiforgalom_tervezo\Debug\legiforgalom_tervezo.exe
-     1>Done Building Project "D:\Játékok és mentések\Visual Studio\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.vcxproj" (Build target(s)).
+﻿Build started 2015.03.30. 12:52:57.
+     1>Project "D:\Játékok és mentések\Biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt legiforgalom_tervezo.c menu.c
+         menu.c
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(19): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(20): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(21): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(22): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(23): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(24): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(25): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(26): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(44): warning C4996: 'cprintf': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _cprintf. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\conio.h(123) : see declaration of 'cprintf'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\menu.c(47): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\conio.h(131) : see declaration of 'getch'
+         legiforgalom_tervezo.c
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(78): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\time.inl(112) : see declaration of 'localtime'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(118): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(147): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(156): warning C4013: 'strsep' undefined; assuming extern returning int
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(156): warning C4047: '=' : 'char *' differs in levels of indirection from 'int'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(158): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(166): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(169): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(185): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(188): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(194): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(204) : see declaration of 'strtok'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(195): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(140): warning C4101: 'idotmp' : unreferenced local variable
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(139): warning C4101: 'j' : unreferenced local variable
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(278): warning C4047: 'function' : 'char *' differs in levels of indirection from 'char (*)[128]'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(278): warning C4024: 'kisbetusito' : different types for formal and actual parameter 1
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(283): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(284): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(325): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(348): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(351): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(357): warning C4047: 'function' : 'int *' differs in levels of indirection from 'int (*)[128]'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(357): warning C4024: 'array_contain' : different types for formal and actual parameter 2
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(397): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(398): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(416): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(417): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(437): warning C4101: 'i' : unreferenced local variable
+     1>d:\játékok és mentések\biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.c(505): warning C4013: 'menu' undefined; assuming extern returning int
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Játékok és mentések\Biztonsági\legiforgalom_tervezo\Debug\legiforgalom_tervezo.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Játékok és mentések\Biztonsági\legiforgalom_tervezo\Debug\legiforgalom_tervezo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Játékok és mentések\Biztonsági\legiforgalom_tervezo\Debug\legiforgalom_tervezo.lib" /MACHINE:X86 Debug\legiforgalom_tervezo.obj
+         Debug\menu.obj
+         Debug\strsep.obj
+         legiforgalom_tervezo.vcxproj -> D:\Játékok és mentések\Biztonsági\legiforgalom_tervezo\Debug\legiforgalom_tervezo.exe
+     1>Done Building Project "D:\Játékok és mentések\Biztonsági\legiforgalom_tervezo\legiforgalom_tervezo\legiforgalom_tervezo.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.15
+Time Elapsed 00:00:01.37

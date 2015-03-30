@@ -2,21 +2,21 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <time.h>
 
-
+#define HSZ sizeof(int)/sizeof(short)*5  /* 5 v 10 jegyu max az int meretetol fuggoen */
 #define MAX 128
 #define ADATOK "repulo.csv"
-#define HSZ sizeof(int)/sizeof(short)*5  /* 5 v 10 jegyu max az int meretetol fuggoen */
 
-char * kisbetusito(char str[]);
-
+//Struktúra
 typedef struct Data {
 	int jaratszam;
 	char repter1[MAX];
 	char repter2[MAX];
-	//indulas
-	//erkezes
+	struct tm indulas;
+	struct tm erkezes;
+	int idoeltolodas;
 	double tavolsag;
 	char osztalyok[10];
 	char repter1_country[MAX];
@@ -26,22 +26,13 @@ typedef struct Data {
 	struct Data *kov;
 }Data;
 
-int getline(char s[], int lim)
-{
-	int i;
-	char c;
-
-	for (i = 0; i<lim && (c = getchar()) != EOF && c != '\n'; ++i)
-		s[i] = c;
-
-	s[i] = '\0';
-
-	while (c != EOF && c != '\n')
-		c = getchar();
-	return i;
-
+//Ékezetes betûk
+void set_charset(){									//Ékezetes karakterek hálleluja
+	system("chcp 1250");
+	system("cls");
 }
 
+//Egésszám ellenõrzés
 int egesze(char s[])
 {
 	int i = 0;
@@ -63,6 +54,65 @@ int egesze(char s[])
 		return 1;
 }
 
+//Szövegbekérés
+int getline(char s[], int lim)
+{
+	int i;
+	char c;
+
+	for (i = 0; i<lim && (c = getchar()) != EOF && c != '\n'; ++i)
+		s[i] = c;
+
+	s[i] = '\0';
+
+	while (c != EOF && c != '\n')
+		c = getchar();
+	return i;
+
+}
+
+//Rendszeridõ lekérdezése
+struct tm ido()
+{
+	time_t most_ennyi_ido_van = time(NULL);
+	struct tm helyi_ido = *localtime(&most_ennyi_ido_van);
+	return helyi_ido;
+}
+
+//Egy stringet (char[]-t) kisbetûssé alakít
+char * kisbetusito(char str[])
+{
+	int i;
+
+	for (i = 0; str[i]; i++){
+		str[i] = tolower(str[i]);
+	}
+	return str;
+}
+
+//Megnézi egy tömbben, hogy tartalmazza-e az aktuális elemet.
+int array_contain(int val, int *arr, int size){
+	int i;
+	for (i = 0; i < size; i++) {
+		if (arr[i] == val)
+			return 1;
+	}
+	return 0;
+}
+
+//Billentyû buffer ürítés
+void flush_in(FILE *in)
+{
+	int ch;
+
+	do
+		ch = fgetc(in);
+	while (ch != EOF && ch != '\n');
+
+	clearerr(in);
+}
+
+//Fájlellenõrzés
 void fajlellenorzes(){
 	printf("Fájl ellenõrzése...\n");
 	FILE *txt = fopen(ADATOK, "r");
@@ -83,9 +133,11 @@ void fajlellenorzes(){
 
 }
 
+//Lita létrehozása
 Data *listaletrehoz(){
 	Data *l = NULL;
-	int i;
+	int i,j,ora,perc;
+	int idotmp[2];
 	char seged[1024];														//ebben van az aktuális sor
 	char seged2[1024];														//ebben az aktuális sornak 1db eleme
 	char *p;																//token kereséshez
@@ -117,15 +169,28 @@ Data *listaletrehoz(){
 				strcpy(u->repter2, seged2);
 				break;
 			case 3:
-				strcpy(u->repter1_country, seged2);
+				sscanf_s(seged2, "%d:%d", &ora,&perc);
+				u->indulas.tm_hour = ora;
+				u->indulas.tm_min = perc;
 				break;
 			case 4:
-				strcpy(u->repter2_country, seged2);
-				break;
+				sscanf_s(seged2, "%d:%d", &ora, &perc);
+				u->erkezes.tm_hour = ora;
+				u->erkezes.tm_min = perc;
+				break;	
 			case 5:
-				u->tavolsag = atof(p);
+				u->idoeltolodas=atoi(seged2);
 				break;
 			case 6:
+				strcpy(u->repter1_country, seged2);
+				break;
+			case 7:
+				strcpy(u->repter2_country, seged2);
+				break;
+			case 8:
+				u->tavolsag = atof(p);
+				break;
+			case 9:
 				strtok(seged2, "\n");
 				strcpy(u->osztalyok, seged2);
 				break;
@@ -141,6 +206,7 @@ Data *listaletrehoz(){
 	return l;
 }
 
+//Lista kiírás
 void listakiir(Data *lista){
 
 	Data *iter;
@@ -150,6 +216,9 @@ void listakiir(Data *lista){
 		printf("Járatszám: [%d]\n", iter->jaratszam);
 		printf("Honnan: [%s]\n", iter->repter1);
 		printf("Hová: [%s]\n", iter->repter2);
+		printf("Indulási idõ: [%d:%d]\n", iter->indulas.tm_hour, iter->indulas.tm_min);
+		printf("Érkezési idõ: [%d:%d]\n", iter->erkezes.tm_hour, iter->erkezes.tm_min);
+		printf("Idõeltolodás: [GMT %s%d]\n", (iter->idoeltolodas>0?"+":""),iter->idoeltolodas);
 		printf("Indulási ország: [%s]\n", iter->repter1_country);
 		printf("Érekzési ország: [%s]\n", iter->repter2_country);
 		printf("Távolság: [%.2f km]\n", iter->tavolsag);
@@ -158,11 +227,7 @@ void listakiir(Data *lista){
 	printf("\n");
 }
 
-void set_charset(){									//Ékezetes karakterek hálleluja
-	system("chcp 1250");
-	system("cls");
-}
-
+//Járatszámkeresés
 void jaratszamkereses(Data *lista)					//Keressük meg a járatunkat
 {
 	Data *iter;
@@ -188,6 +253,7 @@ void jaratszamkereses(Data *lista)					//Keressük meg a járatunkat
 
 }
 
+//Reptérkeresés
 void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ oldalon
 {
 	Data *iter = lista;
@@ -232,6 +298,7 @@ void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ ol
 
 }
 
+//Osztálykeresés
 void osztalyok_keresese(Data *lista)
 {
 	Data *iter = lista;
@@ -306,6 +373,7 @@ void osztalyok_keresese(Data *lista)
 	}
 }
 
+//Országkeresés
 void orszagkereses(Data *lista){
 	
 	char indule[MAX];													//Indulási vagy érkezési ország eldöntése
@@ -363,45 +431,67 @@ void orszagkereses(Data *lista){
 
 }
 
-//Megnézi egy tömbben, hogy tartalmazza-e az aktuális elemet.
-int array_contain(int val, int *arr, int size){
-	int i;
-	for (i = 0; i < size; i++) {
-		if (arr[i] == val)
-			return 1;
-	}
-	return 0;
-}
-
-//egy stringet (char[]-t) kisbetûssé alakít
-char * kisbetusito(char str[])
+//Idõpontkeresés
+void idopontkereses(Data *lista)
 {
-	int i;
+	int i, userhour, usermin, ok = 0;
+	char indule[MAX];
+	char idopont[MAX];
+	Data *iter;
 
-	for (i = 0; str[i]; i++){
-		str[i] = tolower(str[i]);
+	printf("Jelmagyarázat:\nI : Indulási idõ\nE : Érkezési idõ\n\n");
+
+	do{																							//Bekér amíg nem i, vagy e
+		printf("Kerem adja meg a keresett pozíciót: "); getline(indule, MAX - 1);
+	} while (strcmp(kisbetusito(indule), "i") && strcmp(kisbetusito(indule), "e"));
+
+	do{
+		fflush(stdin);
+		ok = 0;
+		printf("Kerem adja meg az idõpontot: "); getline(idopont, MAX - 1);
+
+	} while (sscanf_s(idopont, "%d:%d", &userhour, &usermin) != 2);
+
+	if (strcmp(indule, "i") == 0)																	//Ha i akkor indulási országot keres és ír ki...
+	{
+		for (iter = lista; iter != NULL; iter = iter->kov)
+		{
+			if (iter->indulas.tm_hour >= userhour && iter->indulas.tm_min >= usermin){
+				printf("Járatszám: [%d]\n", iter->jaratszam);
+				printf("Honnan: [%s]\n", iter->repter1);
+				printf("Hová: [%s]\n", iter->repter2);
+				printf("Indulási idõ: [%d:%d]\n", iter->indulas.tm_hour, iter->indulas.tm_min);
+				printf("Érkezési idõ: [%d:%d]\n", iter->erkezes.tm_hour, iter->erkezes.tm_min);
+				printf("Idõeltolodás: [GMT %s%d]\n", (iter->idoeltolodas>0 ? "+" : ""), iter->idoeltolodas);
+				printf("Indulási ország: [%s]\n", iter->repter1_country);
+				printf("Érekzési ország: [%s]\n", iter->repter2_country);
+				printf("Távolság: [%.2f km]\n", iter->tavolsag);
+				printf("Osztályok: [%s]\n\n", iter->osztalyok);
+			}
+		}
+
 	}
-	return str;
+	else																						//Ha nem i akkor erkezesi országot keres és ír ki...
+	{
+		for (iter = lista; iter != NULL; iter = iter->kov)
+		{
+			if (iter->erkezes.tm_hour >= userhour && iter->erkezes.tm_min >= usermin){
+				printf("Járatszám: [%d]\n", iter->jaratszam);
+				printf("Honnan: [%s]\n", iter->repter1);
+				printf("Hová: [%s]\n", iter->repter2);
+				printf("Indulási idõ: [%d:%d]\n", iter->indulas.tm_hour, iter->indulas.tm_min);
+				printf("Érkezési idõ: [%d:%d]\n", iter->erkezes.tm_hour, iter->erkezes.tm_min);
+				printf("Idõeltolodás: [GMT %s%d]\n", (iter->idoeltolodas>0 ? "+" : ""), iter->idoeltolodas);
+				printf("Indulási ország: [%s]\n", iter->repter1_country);
+				printf("Érekzési ország: [%s]\n", iter->repter2_country);
+				printf("Távolság: [%.2f km]\n", iter->tavolsag);
+				printf("Osztályok: [%s]\n\n", iter->osztalyok);
+			}
+		}
+	}
 }
 
-void ido()										//Lekérdezi az idõt és a dátumot
-{												//Valahogy majd visszatérési értének kellene használni, még nem jöttem rá hogyan !
-	time_t t;									//(De kezdek agysorvadást kapni a mai napra !)
-	t = time(NULL);
-	printf("%s\n", ctime(&t));
-}
-
-void flush_in(FILE *in)
-{
-	int ch;
-
-	do
-		ch = fgetc(in);
-	while (ch != EOF && ch != '\n');
-
-	clearerr(in);
-}
-
+//Fõprogram
 void main()
 {
 	int akt_menu_elem;
@@ -432,7 +522,7 @@ void main()
 			orszagkereses(lis);
 			break;
 		case 5:
-			printf("OK");
+			idopontkereses(lis);
 			break;
 		case 6:
 			jaratszamkereses(lis);

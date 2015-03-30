@@ -16,11 +16,11 @@ int menu()
 	int end=0;
 	int precheck = 0;
 
-	strcpy(fomenu[0], "Útvonaltervezés (még listakiir())");
+	strcpy(fomenu[0], "Útvonaltervezés");
 	strcpy(fomenu[1], "Jegyár kalkulátor");
 	strcpy(fomenu[2], "Reptér keresése");
 	strcpy(fomenu[3], "Ország keresése");
-	strcpy(fomenu[4], "Ido alapú keresés");
+	strcpy(fomenu[4], "Idõ alapú keresés");
 	strcpy(fomenu[5], "Járatszám keresése");
 	strcpy(fomenu[6], "Osztályok keresése");
 	strcpy(fomenu[7], "Kilépés");
