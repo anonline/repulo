@@ -1,128 +1,128 @@
-0;Sao Paulo;Tokió;20:01;10:25;2;Magyar;Brazil;6702;3
-1;Pozsony;Buenos Aires;11:19;23:08;-1;Japán;Amerika;5862;3
-2;Manila;Lagos;20:54;10:08;-5;Magyar;Brazil;4815;3
-3;Beijing;Karachi;23:36;14:41;-1;Japán;Amerika;2892;3
-4;Isztambul;Teherán;12:31;10:52;7;Magyar;Brazil;2117;3
-5;Beijing;Shanghai;3:42;13:32;-9;Japán;Amerika;6487;2,3
-6;Mumbai (Bombay);Kairó;1:38;1:05;-1;Arab;Britt;5429;3
-7;Sao Paulo;Kairó;22:22;23:14;-9;Japán;Amerika;9963;3
-8;Colorado;Kairó;21:37;8:03;9;Magyar;Brazil;5553;3
-9;Los Angeles;Lagos;5:06;14:41;-4;Japán;Amerika;6538;2
-10;Mexico City;Karachi;4:39;20:43;3;Magyar;Brazil;9092;3
-11;Miami;Lagos;0:42;0:25;-10;Japán;Amerika;3746;3
-12;New York City;Jakarta;5:55;7:38;-5;Magyar;Brazil;9784;3
-13;Delhi;Tokió;0:28;24:56:00;9;Japán;Amerika;6475;3
-14;Moszkva;Teherán;9:41;3:49;8;Magyar;Brazil;8008;3
-15;Lagos;Tokió;19:16;19:54;10;Japán;Amerika;2418;1,3
-16;Mexico City;Jakarta;15:16;12:23;10;Magyar;Brazil;6208;3
-17;Buenos Aires;Tokió;18:31;1:21;2;Japán;Amerika;5493;3
-18;Párizs;Szöul;14:39;13:24;11;Magyar;Brazil;9917;1,2,3
-19;Bukarest;Budapest;10:51;1:14;7;Japán;Amerika;3461;3
-20;Lagos;Jakarta;10:47;3:34;3;Magyar;Brazil;4879;3
-21;Bécs;Manila;20:02;6:46;9;Japán;Amerika;1097;2
-22;Mexico City;Budapest;2:46;10:27;12;Magyar;Brazil;7696;3
-23;Varsó;Kairó;24:37:00;24:29:00;-11;Japán;Amerika;6857;3
-24;Jakarta;Teherán;17:56;23:22;-6;Magyar;Brazil;751;3
-25;New York City;Manila;20:42;22:39;-9;Japán;Amerika;4699;2,3
-26;Bern;Karachi;18:05;7:41;10;Magyar;Brazil;7534;3
-27;Bern;Teherán;15:34;5:20;5;Japán;Amerika;1335;3
-28;Mexico City;Kairó;10:08;9:00;-11;Magyar;Brazil;6572;3
-29;Delhi;Shanghai;9:22;22:16;12;Japán;Amerika;4420;2
-30;Teherán;Buenos Aires;13:49;23:07;8;Magyar;Brazil;8717;2,3
-31;Bukarest;Shanghai;24:35:00;17:47;5;Japán;Amerika;4636;3
-32;Róma;Kairó;19:35;6:25;-12;Magyar;Brazil;6235;2
-33;New York City;Kairó;3:02;7:09;-1;Japán;Amerika;563;2
-34;Budapest;Jakarta;1:53;10:46;-11;Magyar;Brazil;3498;3
-35;Shanghai;Teherán;24:28:00;9:38;-10;Japán;Amerika;704;3
-36;Karachi;Kairó;8:03;18:18;-4;Magyar;Brazil;9143;3
-37;Lima;Karachi;6:02;18:40;-11;Japán;Amerika;645;1
-38;Kairó;Buenos Aires;2:01;18:30;-9;Magyar;Brazil;2349;2,3
-39;Athén;Jakarta;24:43:00;19:24;12;Japán;Amerika;9319;2
-40;Isztambul;Lagos;18:59;17:57;10;Magyar;Brazil;3770;1,3
-41;Párizs;Jakarta;2:17;7:32;-11;Japán;Amerika;3226;2,3
-42;Athén;Teherán;23:15;4:15;-1;Magyar;Brazil;965;1,3
-43;Jakarta;Lagos;1:23;14:07;0;Japán;Amerika;7255;3
-44;Moszkva;Budapest;16:17;7:24;-7;Magyar;Brazil;9048;3
-45;Moszkva;Karachi;18:13;0:02;-2;Japán;Amerika;7122;2
-46;Berlin;Jakarta;22:42;23:28;1;Magyar;Brazil;2810;3
-47;Karachi;Jakarta;21:53;14:18;-6;Japán;Amerika;7229;3
-48;Bécs;Szöul;22:29;14:41;-6;Magyar;Brazil;9677;3
-49;Teherán;Lagos;21:17;22:21;-6;Japán;Amerika;4764;3
-50;Beijing;Teherán;12:51;21:36;-10;Magyar;Brazil;5104;2,3
-51;Isztambul;Jakarta;20:27;21:23;-4;Japán;Amerika;8098;3
-52;Manila;Jakarta;10:08;7:31;-9;Magyar;Brazil;4347;1,3
-53;Szöul;Teherán;14:53;3:25;-2;Japán;Amerika;5074;2,3
-54;Miami;Shanghai;17:38;17:11;7;Magyar;Brazil;8410;1,2,3
-55;Tokió;Karachi;5:13;7:49;10;Japán;Amerika;1706;3
-56;Lima;Teherán;4:32;14:53;-2;Magyar;Brazil;5843;2,3
-57;Kairó;Tokió;21:57;23:02;-5;Japán;Amerika;8132;2
-58;New York City;Karachi;16:50;17:31;-12;Magyar;Brazil;6695;3
-59;Moszkva;Kairó;9:57;8:21;10;Japán;Amerika;6301;3
-60;Bukarest;Jakarta;10:54;18:14;-12;Magyar;Brazil;7692;1,2
-61;Grönland;Manila;23:17;10:56;-12;Japán;Amerika;4503;1,3
-62;Miami;Budapest;12:09;23:03;2;Magyar;Brazil;5049;3
-63;Kairó;Manila;6:22;24:47:00;-11;Japán;Amerika;5744;3
-64;Manila;Kairó;22:53;8:28;1;Magyar;Brazil;9956;3
-65;Karachi;Szöul;18:34;9:36;11;Japán;Amerika;6007;2,3
-66;Bukarest;Kairó;6:30;13:20;5;Magyar;Brazil;577;2
-67;Róma;Teherán;8:49;11:34;1;Japán;Amerika;7774;2
-68;Los Angeles;Szöul;20:19;5:23;5;Magyar;Brazil;5309;2
-69;London;Shanghai;10:42;9:28;8;Japán;Amerika;7720;3
-70;Szöul;Shanghai;12:24;7:48;-1;Magyar;Brazil;6308;1,3
-71;Bern;Buenos Aires;5:24;12:34;10;Japán;Amerika;4596;2
-72;Jakarta;Tokió;9:57;2:41;11;Magyar;Brazil;1603;3
-73;New York City;Szöul;6:17;2:41;1;Japán;Amerika;536;3
-74;Manila;Tokió;22:23;4:15;1;Magyar;Brazil;2126;3
-75;Tokió;Shanghai;14:16;13:48;11;Japán;Amerika;7905;2,3
-76;Beijing;Jakarta;4:37;23:04;5;Magyar;Brazil;3016;3
-77;Shanghai;Budapest;6:36;3:22;1;Japán;Amerika;1901;1,3
-78;Mumbai (Bombay);Karachi;18:03;18:29;-2;Magyar;Brazil;4779;2
-79;Lima;Tokió;11:54;3:00;8;Japán;Amerika;2162;3
-80;Isztambul;Budapest;24:23:00;20:59;-5;Magyar;Brazil;9444;3
-81;Berlin;Buenos Aires;16:57;17:17;-6;Japán;Amerika;8703;3
-82;Bern;Lagos;0:43;5:30;-11;Magyar;Brazil;2291;2,3
-83;Isztambul;Karachi;14:40;1:59;-4;Japán;Amerika;8104;2,3
-84;Beijing;Budapest;24:32:00;2:12;-3;Magyar;Brazil;7907;1
-85;Pozsony;Karachi;3:37;21:12;6;Japán;Amerika;4121;3
-86;Tokió;Teherán;7:56;10:24;0;Magyar;Brazil;8424;2,3
-87;Szöul;Buenos Aires;23:48;13:59;12;Japán;Amerika;3740;3
-88;Los Angeles;Teherán;15:27;12:08;12;Magyar;Brazil;2452;3
-89;Washington D.C.;Buenos Aires;5:07;22:09;-6;Japán;Amerika;950;3
-90;Shanghai;Lagos;6:23;12:32;-1;Magyar;Brazil;3457;1,3
-91;Colorado;Karachi;14:16;6:46;5;Japán;Amerika;6464;2
-92;Mumbai (Bombay);Szöul;7:53;6:29;-7;Magyar;Brazil;9043;3
-93;Teherán;Shanghai;18:50;2:23;-7;Japán;Amerika;5364;2,3
-94;Sao Paulo;Teherán;22:49;19:34;4;Magyar;Brazil;3468;2
-95;Beijing;Szöul;3:15;14:38;9;Japán;Amerika;3439;3
-96;Berlin;Shanghai;20:39;24:00:00;-11;Magyar;Brazil;4404;3
-97;Beijing;Lagos;20:03;12:07;0;Japán;Amerika;2010;3
-98;Isztambul;Tokió;2:08;16:35;1;Magyar;Brazil;1895;2
-99;Colorado;Lagos;20:52;21:01;3;Japán;Amerika;867;1,3
-100;Sao Paulo;Jakarta;18:08;15:34;-2;Magyar;Brazil;7190;3
-101;Mexico City;Buenos Aires;6:11;16:25;-5;Japán;Amerika;7015;2,3
-102;Washington D.C.;Budapest;19:52;1:22;-4;Magyar;Brazil;4061;3
-103;Szöul;Karachi;18:10;24:55:00;-6;Japán;Amerika;3049;3
-104;Washington D.C.;Tokió;1:28;2:51;4;Magyar;Brazil;8403;1,2,3
-105;Sao Paulo;Karachi;23:36;5:24;2;Japán;Amerika;6004;3
-106;Bukarest;Tokió;22:26;23:26;0;Magyar;Brazil;5191;3
-107;Buenos Aires;Szöul;12:05;1:33;10;Japán;Amerika;8241;1
-108;Grönland;Buenos Aires;11:46;8:23;-5;Magyar;Brazil;3237;1,3
-109;Pozsony;Szöul;18:10;18:11;-11;Japán;Amerika;9349;3
-110;Bukarest;Manila;12:51;24:17:00;6;Magyar;Brazil;2873;2,3
-111;Beijing;Manila;15:42;21:05;-2;Japán;Amerika;1434;2
-112;Jakarta;Buenos Aires;24:46:00;22:27;4;Magyar;Brazil;6374;2
-113;Bukarest;Teherán;1:55;9:10;-7;Japán;Amerika;8462;2,3
-114;Berlin;Teherán;11:27;19:20;-10;Magyar;Brazil;627;3
-115;Grönland;Budapest;23:44;17:05;8;Japán;Amerika;8212;3
-116;Lagos;Buenos Aires;12:09;13:19;-9;Magyar;Brazil;5756;3
-117;Mumbai (Bombay);Jakarta;1:13;4:12;-10;Japán;Amerika;4913;1,3
-118;Budapest;Manila;17:37;7:15;1;Magyar;Brazil;1645;1,2
-119;Karachi;Tokió;1:15;23:15;7;Japán;Amerika;8580;3
-120;Párizs;Shanghai;23:38;13:49;10;Magyar;Brazil;1808;3
-121;Colorado;Shanghai;11:51;7:14;-6;Japán;Amerika;4615;2,3
-122;Lagos;Teherán;13:46;3:36;-8;Magyar;Brazil;6385;3
-123;Berlin;Tokió;17:03;1:20;-12;Japán;Amerika;2922;1
-124;Los Angeles;Jakarta;14:01;12:45;-7;Magyar;Brazil;8130;1,3
-125;Pozsony;Manila;2:52;20:18;-7;Japán;Amerika;2745;3
-126;Mexico City;Manila;5:55;3:50;11;Magyar;Brazil;757;1,2
-127;Sao Paulo;Lagos;9:49;1:41;3;Japán;Amerika;1795;2,3
+127;Sao Paulo;Lagos;8:34:00;14:4:00;3;Japán;Amerika;1795;2,3
+126;Mexico City;Manila;4:47:00;20:13:00;11;Magyar;Brazil;757;1,2
+125;Pozsony;Manila;15:52:00;7:59:00;-7;Japán;Amerika;2745;3
+124;Los Angeles;Jakarta;2:59:00;15:54:00;-7;Magyar;Brazil;8130;1,3
+123;Berlin;Tokió;15:48:00;22:37:00;-12;Japán;Amerika;2922;1
+122;Lagos;Teherán;9:31:00;11:31:00;-8;Magyar;Brazil;6385;3
+121;Colorado;Shanghai;21:19:00;2:3:00;-6;Japán;Amerika;4615;2,3
+120;Párizs;Shanghai;19:34:00;23:3:00;10;Magyar;Brazil;1808;3
+119;Karachi;Tokió;1:45:00;9:49:00;7;Japán;Amerika;8580;3
+118;Budapest;Manila;22:33:00;14:40:00;1;Magyar;Brazil;1645;1,2
+117;Mumbai (Bombay);Jakarta;13:47:00;22:2:00;-10;Japán;Amerika;4913;1,3
+116;Lagos;Buenos Aires;9:49:00;8:32:00;-9;Magyar;Brazil;5756;3
+115;Grönland;Budapest;8:5:00;20:25:00;8;Japán;Amerika;8212;3
+114;Berlin;Teherán;8:13:00;6:37:00;-10;Magyar;Brazil;627;3
+113;Bukarest;Teherán;7:17:00;7:9:00;-7;Japán;Amerika;8462;2,3
+112;Jakarta;Buenos Aires;21:25:00;21:6:00;4;Magyar;Brazil;6374;2
+111;Beijing;Manila;20:15:00;13:45:00;-2;Japán;Amerika;1434;2
+110;Bukarest;Manila;23:53:00;16:9:00;6;Magyar;Brazil;2873;2,3
+109;Pozsony;Szöul;18:45:00;11:49:00;-11;Japán;Amerika;9349;3
+108;Grönland;Buenos Aires;2:13:00;16:46:00;-5;Magyar;Brazil;3237;1,3
+107;Buenos Aires;Szöul;20:35:00;19:32:00;10;Japán;Amerika;8241;1
+106;Bukarest;Tokió;3:55:00;10:31:00;0;Magyar;Brazil;5191;3
+105;Sao Paulo;Karachi;17:37:00;16:16:00;2;Japán;Amerika;6004;3
+104;Washington D.C.;Tokió;11:56:00;18:25:00;4;Magyar;Brazil;8403;1,2,3
+103;Szöul;Karachi;11:33:00;3:10:00;-6;Japán;Amerika;3049;3
+102;Washington D.C.;Budapest;16:57:00;18:40:00;-4;Magyar;Brazil;4061;3
+101;Mexico City;Buenos Aires;6:30:00;11:6:00;-5;Japán;Amerika;7015;2,3
+100;Sao Paulo;Jakarta;21:13:00;10:6:00;-2;Magyar;Brazil;7190;3
+99;Colorado;Lagos;7:13:00;9:45:00;3;Japán;Amerika;867;1,3
+98;Isztambul;Tokió;21:30:00;20:39:00;1;Magyar;Brazil;1895;2
+97;Beijing;Lagos;14:32:00;4:54:00;0;Japán;Amerika;2010;3
+96;Berlin;Shanghai;17:23:00;4:49:00;-11;Magyar;Brazil;4404;3
+95;Beijing;Szöul;10:53:00;4:32:00;9;Japán;Amerika;3439;3
+94;Sao Paulo;Teherán;15:32:00;22:39:00;4;Magyar;Brazil;3468;2
+93;Teherán;Shanghai;19:40:00;21:45:00;-7;Japán;Amerika;5364;2,3
+92;Mumbai (Bombay);Szöul;2:58:00;10:48:00;-7;Magyar;Brazil;9043;3
+91;Colorado;Karachi;20:11:00;16:2:00;5;Japán;Amerika;6464;2
+90;Shanghai;Lagos;10:31:00;5:24:00;-1;Magyar;Brazil;3457;1,3
+89;Washington D.C.;Buenos Aires;14:50:00;1:15:00;-6;Japán;Amerika;950;3
+88;Los Angeles;Teherán;5:33:00;16:14:00;12;Magyar;Brazil;2452;3
+87;Szöul;Buenos Aires;1:43:00;18:59:00;12;Japán;Amerika;3740;3
+86;Tokió;Teherán;16:54:00;4:42:00;0;Magyar;Brazil;8424;2,3
+85;Pozsony;Karachi;2:18:00;13:32:00;6;Japán;Amerika;4121;3
+84;Beijing;Budapest;12:57:00;1:41:00;-3;Magyar;Brazil;7907;1
+83;Isztambul;Karachi;12:59:00;7:33:00;-4;Japán;Amerika;8104;2,3
+82;Bern;Lagos;22:39:00;10:59:00;-11;Magyar;Brazil;2291;2,3
+81;Berlin;Buenos Aires;23:36:00;11:24:00;-6;Japán;Amerika;8703;3
+80;Isztambul;Budapest;5:12:00;15:30:00;-5;Magyar;Brazil;9444;3
+79;Lima;Tokió;3:0:00;1:21:00;8;Japán;Amerika;2162;3
+78;Mumbai (Bombay);Karachi;4:42:00;2:40:00;-2;Magyar;Brazil;4779;2
+77;Shanghai;Budapest;10:31:00;4:52:00;1;Japán;Amerika;1901;1,3
+76;Beijing;Jakarta;15:3:00;10:57:00;5;Magyar;Brazil;3016;3
+75;Tokió;Shanghai;22:52:00;16:1:00;11;Japán;Amerika;7905;2,3
+74;Manila;Tokió;16:45:00;10:17:00;1;Magyar;Brazil;2126;3
+73;New York City;Szöul;8:4:00;5:55:00;1;Japán;Amerika;536;3
+72;Jakarta;Tokió;5:30:00;20:59:00;11;Magyar;Brazil;1603;3
+71;Bern;Buenos Aires;20:42:00;13:8:00;10;Japán;Amerika;4596;2
+70;Szöul;Shanghai;16:19:00;12:8:00;-1;Magyar;Brazil;6308;1,3
+69;London;Shanghai;12:23:00;10:6:00;8;Japán;Amerika;7720;3
+68;Los Angeles;Szöul;9:33:00;23:37:00;5;Magyar;Brazil;5309;2
+67;Róma;Teherán;7:37:00;6:17:00;1;Japán;Amerika;7774;2
+66;Bukarest;Kairó;11:5:00;9:20:00;5;Magyar;Brazil;577;2
+65;Karachi;Szöul;2:33:00;2:27:00;11;Japán;Amerika;6007;2,3
+64;Manila;Kairó;9:58:00;2:4:00;1;Magyar;Brazil;9956;3
+63;Kairó;Manila;8:1:00;8:9:00;-11;Japán;Amerika;5744;3
+62;Miami;Budapest;19:33:00;15:45:00;2;Magyar;Brazil;5049;3
+61;Grönland;Manila;5:41:00;7:19:00;-12;Japán;Amerika;4503;1,3
+60;Bukarest;Jakarta;23:37:00;20:37:00;-12;Magyar;Brazil;7692;1,2
+59;Moszkva;Kairó;20:1:00;6:35:00;10;Japán;Amerika;6301;3
+58;New York City;Karachi;10:54:00;21:39:00;-12;Magyar;Brazil;6695;3
+57;Kairó;Tokió;11:53:00;9:33:00;-5;Japán;Amerika;8132;2
+56;Lima;Teherán;13:56:00;11:37:00;-2;Magyar;Brazil;5843;2,3
+55;Tokió;Karachi;9:57:00;6:22:00;10;Japán;Amerika;1706;3
+54;Miami;Shanghai;14:26:00;22:52:00;7;Magyar;Brazil;8410;1,2,3
+53;Szöul;Teherán;6:47:00;19:28:00;-2;Japán;Amerika;5074;2,3
+52;Manila;Jakarta;15:25:00;20:15:00;-9;Magyar;Brazil;4347;1,3
+51;Isztambul;Jakarta;18:21:00;22:4:00;-4;Japán;Amerika;8098;3
+50;Beijing;Teherán;16:10:00;12:22:00;-10;Magyar;Brazil;5104;2,3
+49;Teherán;Lagos;2:27:00;3:13:00;-6;Japán;Amerika;4764;3
+48;Bécs;Szöul;22:15:00;10:23:00;-6;Magyar;Brazil;9677;3
+47;Karachi;Jakarta;22:22:00;10:5:00;-6;Japán;Amerika;7229;3
+46;Berlin;Jakarta;18:13:00;1:36:00;1;Magyar;Brazil;2810;3
+45;Moszkva;Karachi;6:51:00;14:41:00;-2;Japán;Amerika;7122;2
+44;Moszkva;Budapest;3:30:00;21:0:00;-7;Magyar;Brazil;9048;3
+43;Jakarta;Lagos;4:50:00;6:55:00;0;Japán;Amerika;7255;3
+42;Athén;Teherán;7:14:00;15:35:00;-1;Magyar;Brazil;965;1,3
+41;Párizs;Jakarta;1:24:00;1:56:00;-11;Japán;Amerika;3226;2,3
+40;Isztambul;Lagos;15:10:00;4:16:00;10;Magyar;Brazil;3770;1,3
+39;Athén;Jakarta;21:36:00;7:12:00;12;Japán;Amerika;9319;2
+38;Kairó;Buenos Aires;19:23:00;12:27:00;-9;Magyar;Brazil;2349;2,3
+37;Lima;Karachi;17:2:00;8:17:00;-11;Japán;Amerika;645;1
+36;Karachi;Kairó;14:44:00;5:55:00;-4;Magyar;Brazil;9143;3
+35;Shanghai;Teherán;3:31:00;17:42:00;-10;Japán;Amerika;704;3
+34;Budapest;Jakarta;18:36:00;17:54:00;-11;Magyar;Brazil;3498;3
+33;New York City;Kairó;16:15:00;20:10:00;-1;Japán;Amerika;563;2
+32;Róma;Kairó;10:29:00;6:8:00;-12;Magyar;Brazil;6235;2
+31;Bukarest;Shanghai;10:21:00;8:34:00;5;Japán;Amerika;4636;3
+30;Teherán;Buenos Aires;2:24:00;16:52:00;8;Magyar;Brazil;8717;2,3
+29;Delhi;Shanghai;4:13:00;7:53:00;12;Japán;Amerika;4420;2
+28;Mexico City;Kairó;21:15:00;8:48:00;-11;Magyar;Brazil;6572;3
+27;Bern;Teherán;7:35:00;6:3:00;5;Japán;Amerika;1335;3
+26;Bern;Karachi;22:49:00;4:31:00;10;Magyar;Brazil;7534;3
+25;New York City;Manila;4:34:00;19:5:00;-9;Japán;Amerika;4699;2,3
+24;Jakarta;Teherán;6:49:00;11:46:00;-6;Magyar;Brazil;751;3
+23;Varsó;Kairó;11:10:00;22:42:00;-11;Japán;Amerika;6857;3
+22;Mexico City;Budapest;13:26:00;1:49:00;12;Magyar;Brazil;7696;3
+21;Bécs;Manila;2:52:00;2:9:00;9;Japán;Amerika;1097;2
+20;Lagos;Jakarta;23:42:00;21:6:00;3;Magyar;Brazil;4879;3
+19;Bukarest;Budapest;16:58:00;23:4:00;7;Japán;Amerika;3461;3
+18;Párizs;Szöul;5:16:00;21:34:00;11;Magyar;Brazil;9917;1,2,3
+17;Buenos Aires;Tokió;16:18:00;3:19:00;2;Japán;Amerika;5493;3
+16;Mexico City;Jakarta;9:49:00;9:41:00;10;Magyar;Brazil;6208;3
+15;Lagos;Tokió;8:41:00;3:34:00;10;Japán;Amerika;2418;1,3
+14;Moszkva;Teherán;8:55:00;15:42:00;8;Magyar;Brazil;8008;3
+13;Delhi;Tokió;20:25:00;9:14:00;9;Japán;Amerika;6475;3
+12;New York City;Jakarta;20:18:00;23:34:00;-5;Magyar;Brazil;9784;3
+11;Miami;Lagos;5:36:00;18:16:00;-10;Japán;Amerika;3746;3
+10;Mexico City;Karachi;12:0:00;14:51:00;3;Magyar;Brazil;9092;3
+9;Los Angeles;Lagos;17:35:00;23:5:00;-4;Japán;Amerika;6538;2
+8;Colorado;Kairó;10:41:00;2:18:00;9;Magyar;Brazil;5553;3
+7;Sao Paulo;Kairó;18:12:00;15:49:00;-9;Japán;Amerika;9963;3
+6;Mumbai (Bombay);Kairó;6:19:00;20:36:00;-1;Arab;Britt;5429;3
+5;Beijing;Shanghai;5:25:00;16:31:00;-9;Japán;Amerika;6487;2,3
+4;Isztambul;Teherán;2:20:00;15:9:00;7;Magyar;Brazil;2117;3
+3;Beijing;Karachi;4:8:00;4:37:00;-1;Japán;Amerika;2892;3
+2;Manila;Lagos;14:18:00;19:17:00;-5;Magyar;Brazil;4815;3
+1;Pozsony;Buenos Aires;22:15:00;10:19:00;-1;Japán;Amerika;5862;3
+0;Sao Paulo;Tokió;14:31:00;12:24:00;2;Magyar;Brazil;6702;3

@@ -54,6 +54,16 @@ int egesze(char s[])
 		return 1;
 }
 
+//Szöveg összefûzés
+char* concat(char *s1, char *s2)
+{
+	char *result = malloc(strlen(s1) + strlen(s2) + 1);//+1 for the zero-terminator
+	//in real code you would check for errors in malloc here
+	strcpy(result, s1);
+	strcat(result, s2);
+	return result;
+}
+
 //Szövegbekérés
 int getline(char s[], int lim)
 {
@@ -90,11 +100,21 @@ char * kisbetusito(char str[])
 	return str;
 }
 
-//Megnézi egy tömbben, hogy tartalmazza-e az aktuális elemet.
+//Megnézi egy int tömbben, hogy tartalmazza-e az aktuális elemet.
 int array_contain(int val, int *arr, int size){
 	int i;
 	for (i = 0; i < size; i++) {
 		if (arr[i] == val)
+			return 1;
+	}
+	return 0;
+}
+
+//Megnézi egy char tömbben, hogy tartalmazza-e az aktuális elemet.
+int char_array_int_contain(int val, char *arr, int size){
+	int i;
+	for (i = 0; i < size; i++) {
+		if (atoi(arr) == val)
 			return 1;
 	}
 	return 0;
@@ -136,7 +156,7 @@ void fajlellenorzes(){
 //Lita létrehozása
 Data *listaletrehoz(){
 	Data *l = NULL;
-	int i,j,ora,perc;
+	int i,j,ora,perc,mp;
 	int idotmp[2];
 	char seged[1024];														//ebben van az aktuális sor
 	char seged2[1024];														//ebben az aktuális sornak 1db eleme
@@ -169,14 +189,16 @@ Data *listaletrehoz(){
 				strcpy(u->repter2, seged2);
 				break;
 			case 3:
-				sscanf_s(seged2, "%d:%d", &ora,&perc);
+				sscanf_s(seged2, "%d:%d:%d", &ora,&perc,&mp);
 				u->indulas.tm_hour = ora;
 				u->indulas.tm_min = perc;
+				u->indulas.tm_sec = mp;
 				break;
 			case 4:
-				sscanf_s(seged2, "%d:%d", &ora, &perc);
+				sscanf_s(seged2, "%d:%d:%d", &ora, &perc, &mp);
 				u->erkezes.tm_hour = ora;
 				u->erkezes.tm_min = perc;
+				u->erkezes.tm_sec = mp;
 				break;	
 			case 5:
 				u->idoeltolodas=atoi(seged2);
@@ -491,6 +513,194 @@ void idopontkereses(Data *lista)
 	}
 }
 
+//Do magic
+char * utvonal(Data *lista, char *honnan, char *cel, char * utvonal_tomb, int *lvl, char * utvonal_end)
+{
+	Data *iter, *iter2;
+	int i,j = 0;
+	char *tmp[MAX];
+	char *tok = ";";
+	int  words[MAX];
+	char  buff[MAX];
+	int ntokens = 0;
+	int szint = *lvl;
+	char * utvonal_p;
+
+	char  *sep = strtok(utvonal_tomb, ";");
+
+	if (strcmp(kisbetusito(honnan), kisbetusito(cel)) == 0)
+	{
+		return utvonal_tomb;
+	}
+
+	while (sep != NULL)
+	{
+		words[ntokens++] = atoi(sep);
+		sep = strtok(NULL, ";");
+	}
+
+
+
+	for (i = 0; i < MAX; i++)
+	{
+		for (iter = lista; iter != NULL; iter = iter->kov)
+		{
+			if (words[ntokens-1] == iter->jaratszam)
+			{
+				for (iter2 = lista; iter2 != NULL; iter2 = iter2->kov)
+				{
+
+					if (array_contain(iter2->jaratszam, words,ntokens) == 0)
+					{
+						
+						if (strcmp(kisbetusito(iter2->repter1), kisbetusito(iter->repter2)) == 0)
+						{
+							itoa(iter2->jaratszam, tmp, 10);
+							for (j = 0; j < ntokens; j++)
+							{
+								itoa(words[j], utvonal_tomb, 10);
+								utvonal_tomb = concat(utvonal_tomb, ";");
+							}
+							utvonal_tomb = concat(utvonal_tomb, tmp);
+
+							if (strcmp(kisbetusito(iter2->repter2), kisbetusito(cel)) == 0){
+								return utvonal_tomb;
+								for (utvonal_p = strsep(utvonal_tomb, ";"); utvonal_p != NULL; utvonal_p = strsep(NULL, ";"))
+								{
+									if (strcmp(utvonal_p, utvonal_tomb) != 0)
+									{
+										strcpy(utvonal_end, utvonal_tomb);
+										return utvonal_tomb;
+									}
+								}
+							}
+							else
+							{
+								if (szint == 0)
+								{
+									return utvonal_tomb;
+									for (utvonal_p = strsep(utvonal_tomb, ";"); utvonal_p != NULL; utvonal_p = strsep(NULL, ";"))
+									{
+										if (strcmp(utvonal_p, utvonal_tomb) != 0)
+										{
+											strcpy(utvonal_end, utvonal_tomb);
+											return utvonal_tomb;
+										}
+									}
+								}
+								szint=szint-1;
+								strcpy(buff,utvonal(lista, honnan, cel, utvonal_tomb,&szint, utvonal_end));
+								utvonal_tomb = concat(utvonal_tomb, ";");
+								utvonal_tomb = concat(utvonal_tomb, buff);
+
+								
+
+								//return utvonal_tomb;
+							}
+						}
+					}
+					strcpy(utvonal_end, utvonal_tomb);//
+				}
+			}
+		}
+	}
+}
+/*void utvonal(Data *lista, char *honnan, char *hova, char * utvonal_tomb[])
+{
+	Data *iter;
+	struct tm temptime;
+
+	int i=0;
+
+	for (iter = lista; iter != NULL; iter = iter->kov)
+	{
+		if (strcmp(kisbetusito(iter->repter1),kisbetusito(honnan))==0)
+		{
+			itoa(iter->jaratszam, utvonal_tomb[i], 10);
+			
+
+			if (strcmp(kisbetusito(iter->repter2), kisbetusito(hova)) == 0)
+			{
+				return utvonal_tomb[i];
+			}
+			i++;
+			
+		}
+	}
+
+	for (iter = lista; iter != NULL; iter = iter->kov)
+	{
+		for (i = 0; i < MAX; i++)
+		{
+			if (utvonal_tomb[i] == iter->jaratszam)
+			{
+				utvonal(iter, iter->repter1, hova, utvonal_tomb);
+			}
+		}
+	}
+}*/
+
+//Útvonaltervezés
+void utvonaltervezes(Data *lista){
+	char honnan[MAX];
+	char hova[MAX];
+	char seged[MAX];
+	int max_atszallasok = 10;
+	int *lvl;
+	Data *iter, *iter2;
+	char utvonal_tomb[MAX][MAX];
+	char utvonal_end[MAX][MAX];
+	int index = 0;
+	int end[MAX];
+	struct tm temptime;
+	char temp[MAX];
+	int i, j = 0;
+
+	printf("Kerem adja meg az induló ország nevét: ");
+	getline(honnan, MAX - 1);
+	printf("Kerem adja meg az érkezõ ország nevét: ");
+	getline(hova, MAX - 1);
+	do{
+		printf("Kerem adja meg az átszállások maximális számát (hagyja üresen, ha nincs kikötés): ");
+		getline(seged, 9);	//Bekérjük a számot, addig amíg nem egész
+		if (egesze(seged) != 1 || seged == "")
+		{
+			printf("Hibás járatszám ! Kérem adja meg újra !\n\n");
+		}
+	} while (egesze(seged) != 1 || seged == "");
+	if (egesze(seged) == 1)
+	{
+		max_atszallasok = atoi(seged);
+	}
+	lvl = &max_atszallasok;
+
+
+	for (iter = lista; iter != NULL; iter = iter->kov)
+	{
+		if (strcmp(kisbetusito(honnan), kisbetusito(iter->repter1)) == 0){
+			itoa(iter->jaratszam, utvonal_tomb[index], 10);
+			index++;
+		}
+	}
+
+	for (i = 0; i < index; i++)
+	{
+		for (iter = lista; iter != NULL; iter = iter->kov)
+		{
+			if (atoi(utvonal_tomb[i]) == iter->jaratszam)
+			{
+				strcpy(utvonal_end[i], utvonal(lista, iter->repter2, hova, utvonal_tomb[i], lvl, utvonal_end));
+
+			}
+		}
+	}
+	for (j = 0; j < index; j++)
+	{
+		printf("%s;\n", utvonal_end[j]);
+	}
+
+}
+
 //Fõprogram
 void main()
 {
@@ -509,8 +719,9 @@ void main()
 		switch (akt_menu_elem)
 		{
 		case 1:
-			ido();
-			listakiir(lis);
+			//ido();
+			//listakiir(lis);
+			utvonaltervezes(lis);
 			break;
 		case 2:
 			printf("OK");
