@@ -9,6 +9,8 @@
 #define MAX 128
 #define ADATOK "repulo.csv"
 
+
+
 //Struktúra
 typedef struct Data {
 	int jaratszam;
@@ -34,6 +36,8 @@ typedef struct csucs { // a gráf egy csúcsánhoz tartozó információk
 	int parent_id;   // a csucs ose 
 }csucs;
 
+
+
 //Járat
 typedef struct el { // a gráf egy éléhez tartozó információk 
 	int el_id;
@@ -48,8 +52,7 @@ typedef struct el { // a gráf egy éléhez tartozó információk
 
 //Egész hálózat
 typedef struct graf { // a teljes gráf 
-	csucs csucsok[35];
-	csucs szomszedosCsucsok[35][2];
+	csucs csucsok[22];
 	el elek[MAX];
 }graf;
 
@@ -128,11 +131,50 @@ struct tm ido()
 char * kisbetusito(char str[])
 {
 	int i;
+	int len = strlen(str);
+	char lower_str[MAX];
+	
+	strncpy(lower_str, str, len);
+	lower_str[len] = '\0';
 
-	for (i = 0; str[i]; i++){
-		str[i] = tolower(str[i]);
+	for (i = 0; i<len; i++){
+		switch (lower_str[i])
+		{
+		case 'Á':
+			lower_str[i] = 'á';
+			break;
+		case 'É':
+			lower_str[i] = 'é';
+			break;
+		case 'Í':
+			lower_str[i] = 'í';
+			break;
+		case 'Ö':
+			lower_str[i] = 'Õ';
+			break;
+		case 'Ü':
+			lower_str[i] = 'ü';
+			break;
+		case 'Ó':
+			lower_str[i] = 'ó';
+			break;
+		case 'Õ':
+			lower_str[i] = 'õ';
+			break;
+		case 'Ú':
+			lower_str[i] = 'ú';
+			break;
+		case 'Û':
+			lower_str[i] = 'û';
+			break;
+		default:
+			lower_str[i] = tolower(str[i]);
+			break;
+		}
+		
 	}
-	return str;
+		
+	return lower_str;
 }
 
 //Megnézi egy int tömbben, hogy tartalmazza-e az aktuális elemet.
@@ -332,7 +374,7 @@ void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ ol
 		}
 	} while (strlen(repternev) < 1);
 
-	kisbetusito(&repternev);
+	strcpy(repternev, kisbetusito(repternev));
 
 	for (iter = lista; iter != NULL; iter = iter->kov)
 	{
@@ -340,7 +382,7 @@ void repterkereses(Data *lista)											//Keresek repteret induló és érkezõ ol
 		strcpy(tmp[0], iter->repter1);
 		strcpy(tmp[1], iter->repter2);
 
-		if (!strcmp(kisbetusito(tmp[0]), repternev) || !strcmp(kisbetusito(tmp[1]), repternev))		//Ha van akkor kiirat, plusz átállítja a változót 1-re
+		if ((!(strcmp(kisbetusito(tmp[0]), repternev))) || (!(strcmp(kisbetusito(tmp[1]), repternev))))		//Ha van akkor kiirat, plusz átállítja a változót 1-re
 		{																				
 			printf("Járatszám: [%d]\n", iter->jaratszam);								
 			printf("Honnan: [%s]\n", iter->repter1);
@@ -443,7 +485,12 @@ void orszagkereses(Data *lista){
 	
 	do{																							//Bekér amíg nem i, vagy e
 		printf("Kerem adja meg a keresett pozíciót: "); getline(indule, MAX - 1);
-	} while (strcmp(kisbetusito(indule), "i") && strcmp(kisbetusito(indule), "e"));
+		strcmp(indule, kisbetusito(indule));
+		if ((strcmp(indule, "i") && strcmp(indule, "e")))
+		{
+			printf("Rossz pozíció!\n\n");
+		}
+	} while ((strcmp(indule,"i") && strcmp(indule, "e")));
 
 	printf("Kerem adja meg az ország nevét: "); getline(orszag, MAX - 1);						//Bekéri az országot
 
@@ -451,10 +498,10 @@ void orszagkereses(Data *lista){
 	{	
 		for (iter = lista; iter != NULL; iter = iter->kov)
 		{
-			strcpy(tmp[0], iter->repter1_country);
-			strcpy(tmp[1], orszag);
+			strcpy(tmp[0], kisbetusito(iter->repter1_country));
+			strcpy(tmp[1], kisbetusito(orszag));
 
-			if (strcmp(kisbetusito(tmp[0]), kisbetusito(tmp[1]))==0){
+			if (!(strcmp(tmp[0], tmp[1]))){
 				printf("Járatszám: [%d]\n", iter->jaratszam);
 				printf("Honnan: [%s]\n", iter->repter1);
 				printf("Hová: [%s]\n", iter->repter2);
@@ -470,10 +517,10 @@ void orszagkereses(Data *lista){
 	{
 		for (iter = lista; iter != NULL; iter = iter->kov)
 		{
-			strcpy(tmp[0], iter->repter2_country);
-			strcpy(tmp[1], orszag);
+			strcpy(tmp[0], kisbetusito(iter->repter2_country));
+			strcpy(tmp[1], kisbetusito(orszag));
 
-			if (strcmp(kisbetusito(tmp[0]), kisbetusito(tmp[1])) == 0){
+			if (!(strcmp(tmp[0], tmp[1]))){
 				printf("Járatszám: [%d]\n", iter->jaratszam);
 				printf("Honnan: [%s]\n", iter->repter1);
 				printf("Hová: [%s]\n", iter->repter2);
@@ -500,7 +547,12 @@ void idopontkereses(Data *lista)
 
 	do{																							//Bekér amíg nem i, vagy e
 		printf("Kerem adja meg a keresett pozíciót: "); getline(indule, MAX - 1);
-	} while (strcmp(kisbetusito(indule), "i") && strcmp(kisbetusito(indule), "e"));
+		strcpy(indule, kisbetusito(indule));
+		if (strcmp(indule, "i") && strcmp(indule, "e"))
+		{
+			printf("Rossz pozíció!\n\n");
+		}
+	} while (strcmp(indule, "i") && strcmp(indule, "e"));
 
 	do{
 		fflush(stdin);
@@ -548,148 +600,16 @@ void idopontkereses(Data *lista)
 	}
 }
 
-/*
-char * utvonal(Data *lista, char *honnan, char *hova, int melyseg, char *parent)
-{
-	Data *iter;
-	char utvonal_tomb[MAX][MAX];
-	int index = 0;
-	int i = 0;
-	int index2 = 0;
-	int j = 0;
-	char * temp_utvonal ="";
-	int endindex = 0;
-	char temp[MAX];
-	char *buff = "";
-	char possible[MAX][MAX];
 
-
-
-	for (iter = lista; iter != NULL; iter = iter->kov)
-	{
-		if (strcmp(kisbetusito(honnan), kisbetusito(iter->repter1)) == 0){
-			itoa(iter->jaratszam, utvonal_tomb[index], 10);
-			index++;
-		}
-	}
-
-	for (iter = lista; iter != NULL; iter = iter->kov)
-	{
-		for (i = 0; i < index; i++){
-			if (iter->jaratszam == atoi(utvonal_tomb[i])){
-				if (strcmp(kisbetusito(hova), kisbetusito(iter->repter2)) == 0){
-					itoa(iter->jaratszam, utvonal_tomb[index2], 10);
-					index2++;
-					temp_utvonal = concat(temp_utvonal, utvonal_tomb[index2-1]);
-					temp_utvonal = concat(temp_utvonal, ";");
-					//temp_utvonal = concat(temp_utvonal, parent);
-					return temp_utvonal;
-					
-				}
-				else
-				{
-
-					itoa(iter->jaratszam, possible[j], 10);
-					j++;
-				}
-			}
-		}
-	}
-	
-	for (iter = lista; iter != NULL; iter = iter->kov)
-	{
-		for (i = 0; i < j; i++){
-			if (iter->jaratszam == atoi(possible[i])){
-				
-				if (melyseg >= 0)
-				{		
-//					buff = concat(parent, "-");
-					buff = concat(buff, possible[i]);
-					buff = concat(buff, "-");
-					buff = concat(buff, utvonal(lista, iter->repter2, hova, (melyseg - 1), buff));
-					temp_utvonal = concat(temp_utvonal, buff);
-					buff = "";
-				}
-				else
-				{
-					buff = concat(buff, "...");
-				//	temp_utvonal = concat(temp_utvonal, buff);
-					//temp_utvonal = concat(temp_utvonal, parent);
-					break;
-				}
-			}
-		}
-		
-	}
-
-	return temp_utvonal;
-}
-
-//Útvonaltervezés
-void utvonaltervezes(Data *lista){
-	char honnan[MAX];
-	char hova[MAX];
-	char seged[MAX];
-	char seged2[MAX];
-	int max_atszallasok = 10;
-	int *lvl;
-	Data *iter, *iter2;
-	char utvonal_tomb[MAX][MAX];
-	char * utvonal_end = "";
-	int index = 0;
-	int end[MAX];
-	struct tm temptime;
-	char temp[MAX];
-	int i, j = 0;
-	char *running ="";
-	char *p,*q;
-
-	printf("Kerem adja meg az induló ország nevét: ");
-	getline(honnan, MAX - 1);
-	printf("Kerem adja meg az érkezõ ország nevét: ");
-	getline(hova, MAX - 1);
-	do{
-		printf("Kerem adja meg az átszállások maximális számát (hagyja üresen, ha nincs kikötés): ");
-		getline(seged, 9);	//Bekérjük a számot, addig amíg nem egész
-		if (egesze(seged) != 1 || seged == "")
-		{
-			printf("Hibás járatszám ! Kérem adja meg újra !\n\n");
-		}
-	} while (egesze(seged) != 1 || seged == "");
-	if (egesze(seged) == 1)
-	{
-		max_atszallasok = atoi(seged);
-	}
-	lvl = &max_atszallasok;
-
-	utvonal_end = concat(utvonal_end, utvonal(lista, honnan, hova, *lvl, ""));
-
-	running =( utvonal_end);
-	for (p = strsep(running, ";"); p != NULL; p = strsep(NULL, ";"))					
-	{
-		strcpy(seged, p);
-		strcpy(seged2, seged);
-		for (q = strsep(seged2, "-"); q != NULL; q = strsep(NULL, "-"))
-		{
-			strcpy(seged2, q);
-
-			printf("%s,", seged2);
-		}
-		printf("\n");
-		
-	}
-
-}*/
 
 
 graf * FillGraph(struct graf *Graf, Data *lista)
 {
-	Data *iter;
-	csucs csucsok[35];
+	Data *iter= (Data*)malloc(sizeof(Data));
+	csucs csucsok[22];
 	int csucs_check = 1;
 	csucs csucs_buff;
 	csucs csucs_buff2;
-	csucs ellista[35][2];
 	el elek[MAX];
 	int i =0;
 	int j = 0;
@@ -721,7 +641,7 @@ graf * FillGraph(struct graf *Graf, Data *lista)
 	i = 0;
 	for (iter = lista; iter != NULL; iter = iter->kov)
 	{
-		for (j = 0; j < 35; j++)
+		for (j = 0; j < 22; j++)
 		{
 			if (strcmp(csucsok[j].allomas, iter->repter1) == 0)
 			{
@@ -733,7 +653,7 @@ graf * FillGraph(struct graf *Graf, Data *lista)
 		strcpy(csucs_buff.country, iter->repter1_country);
 		elek[i].kezdet = csucs_buff;
 
-		for (j = 0; j < 35; j++)
+		for (j = 0; j < 22; j++)
 		{
 			if (strcmp(csucsok[j].allomas, iter->repter2) == 0)
 			{
@@ -753,100 +673,123 @@ graf * FillGraph(struct graf *Graf, Data *lista)
 		i++;
 	}
 
-	//Szomszédos élek
-	j = 0;
-	for (i = 0; i < 35;i++)
-	{
-		for (iter = lista; iter != NULL; iter = iter->kov)
-		{
-			if (csucsok[i].allomas == iter->repter1)
-			{
-				ellista[j][0] = csucsok[i];
-
-				for (k = 0; k < 35; k++)
-				{
-					if (strcmp(csucsok[k].allomas, iter->repter2) == 0)
-					{
-						csucs_buff2.id = csucsok[k].id;
-					}
-				}
-
-				csucs_buff2.allomas = iter->repter2;
-				csucs_buff2.parent_id = NULL;
-				ellista[j][1] = csucs_buff2;
-				j++;
-			}
-		}
-	}
-
-	for (i = 0; i < 35; i++)
-	{
-		Graf->csucsok[i] = csucsok[i];
-		Graf->szomszedosCsucsok[i][0] = ellista[i][0];
-		Graf->szomszedosCsucsok[i][1] = ellista[i][1];
-
-	}
-
 	for (i = 0; i < MAX; i++)
 	{
 		Graf->elek[i] = elek[i];
 	}
-
+	
+	for (i = 0; i < 22; i++)
+	{
+		Graf->csucsok[i] = csucsok[i];
+	}
 
 	
 
 	return Graf;
 }
 
-void Kerulo_kereses(struct graf *Graf, struct utvonal *ut_vonal[][MAX], char *honnan, char *hova, int lvl){
-	utvonal *iter;
-	int i;
+int Kozos_pontok(struct graf *Graf, char *honnan, char *hova)
+{
+	int i, j, counter =0;
+	el *elek[MAX];
+	struct tm *varakozasi_ido = (struct tm*)malloc(sizeof(struct tm));
+	int felhasznalt_elek;
 
-	printf(" ");
 	for (i = 0; i < MAX; i++)
 	{
-		for (iter = *ut_vonal[i]; iter != NULL; iter = iter->kov)
-		{
-
+		if (strcmp(kisbetusito(Graf->elek[i].kezdet.allomas), honnan) == 0){
+			elek[counter] = (el*)malloc(sizeof(el));
+			*elek[counter] = Graf->elek[i];
+			counter++;
 		}
 	}
+	felhasznalt_elek = counter;
+
+	for (i = 0; i < counter; i++)
+	{
+		for (j = 0; j < MAX; j++)
+		{
+			if (Graf->elek[j].kezdet.id == elek[i]->veg.id)
+			{
+				if (strcmp(kisbetusito(Graf->elek[j].veg.allomas), hova)==0)
+				{
+					printf("\n---------------\n");
+					printf("\nHonnan: %s (%s)\n", elek[i]->kezdet.allomas, elek[i]->kezdet.country);
+					printf("Hová: %s (%s)\n", elek[i]->veg.allomas, elek[i]->veg.country);
+					printf("Indulás: %d:%d\n", elek[i]->indulas.tm_hour, elek[i]->indulas.tm_min);
+					printf("Érkezés: %d:%d\n", elek[i]->erkezes.tm_hour, elek[i]->erkezes.tm_min);
+					printf("Idõeltolodás: GMT %s%d\n", (elek[i]->idoeltolodas > 0 ? "+" : ""), elek[i]->idoeltolodas);
+					printf("Távolság: %.2f km\n", elek[i]->tavolsag);
+					printf("Osztályok: %s\n", elek[i]->osztalyok);
+
+					varakozasi_ido->tm_hour = Graf->elek[j].indulas.tm_hour - elek[i]->erkezes.tm_hour;
+					varakozasi_ido->tm_min = Graf->elek[j].indulas.tm_min - elek[i]->erkezes.tm_min;
+					if (varakozasi_ido->tm_min < 0)
+					{
+						varakozasi_ido->tm_hour = varakozasi_ido->tm_hour - 1;
+						varakozasi_ido->tm_min = 60 + varakozasi_ido->tm_min;
+					}
+					printf("\nVárakozási idõ: %d:%d\n", varakozasi_ido->tm_hour, varakozasi_ido->tm_min);
+					printf("Idõ eltolódás: GMT %s%d\n", ((elek[i]->idoeltolodas + Graf->elek[j].idoeltolodas) > 0 ? "+" : ""), (elek[i]->idoeltolodas + Graf->elek[j].idoeltolodas));
+
+					printf("\nHonnan: %s (%s)\n", Graf->elek[j].kezdet.allomas, Graf->elek[j].kezdet.country);
+					printf("Hová: %s (%s)\n", Graf->elek[j].veg.allomas, Graf->elek[j].veg.country);
+					printf("Indulás: %d:%d\n", Graf->elek[j].indulas.tm_hour, Graf->elek[j].indulas.tm_min);
+					printf("Érkezés: %d:%d\n", Graf->elek[j].erkezes.tm_hour, Graf->elek[j].erkezes.tm_min);
+					printf("Idõeltolodás: GMT %s%d\n", (Graf->elek[j].idoeltolodas > 0 ? "+" : ""), Graf->elek[j].idoeltolodas);
+					printf("Távolság: %.2f km\n", Graf->elek[j].tavolsag);
+					printf("Osztályok: %s\n", Graf->elek[j].osztalyok);
+					felhasznalt_elek--;
+				}
+			}
+		}
+	}
+
+	return counter;
 }
 
-utvonal * FindPath(struct graf *Graf, char *honnan, char *hova, int lvl)
+int FindPath(struct graf *Graf, char *honnan, char *hova)
 {
 	utvonal *ut_vonal[MAX];
 	utvonal *buffer, *iter;
 	el *kozvetlen[MAX];
 
+	char hova2[MAX];
+
 	int indulo_csucsok_index = 0;
 	int kozvetlen_jarat_index = 0;
-	int i,j;
+	int i, j;
 	int first = 1;
 
 	for (i = 0; i < MAX; i++)
 	{
-		if (strcmp(kisbetusito(Graf->elek[i].kezdet.allomas),honnan)==0){
+		if (!(strcmp(kisbetusito(Graf->elek[i].kezdet.allomas), honnan))){
 
 			ut_vonal[indulo_csucsok_index] = (utvonal*)malloc(sizeof(utvonal));
-			
+
 			ut_vonal[indulo_csucsok_index]->allomas = Graf->elek[i].kezdet;
 			ut_vonal[indulo_csucsok_index]->el_id = Graf->elek[i].el_id;
 			ut_vonal[indulo_csucsok_index]->kov = NULL;
 			indulo_csucsok_index++;
-			
+
 		}
+	}
+
+	for (i = indulo_csucsok_index; i < MAX; i++)
+	{
+		ut_vonal[i] = NULL;
 	}
 
 	for (i = 0; i <= indulo_csucsok_index; i++)
 	{
-		for (buffer = ut_vonal[i];i<indulo_csucsok_index; buffer=ut_vonal[++i])
+		for (buffer = ut_vonal[i]; i < indulo_csucsok_index; buffer = ut_vonal[++i])
 		{
 			for (j = 0; j < MAX; j++)
 			{
 				if (buffer->el_id == Graf->elek[j].el_id)
 				{
-					if (strcmp(kisbetusito(Graf->elek[j].kezdet.allomas), kisbetusito(buffer->allomas.allomas)) == 0){
-						if (strcmp(kisbetusito(Graf->elek[j].veg.allomas), hova) == 0){
+					if (!(strcmp(Graf->elek[j].kezdet.allomas, buffer->allomas.allomas))){
+						if (!(strcmp(kisbetusito(Graf->elek[j].veg.allomas), hova))){
 							iter = (utvonal*)malloc(sizeof(utvonal));
 
 							iter->allomas = Graf->elek[j].veg;
@@ -865,10 +808,10 @@ utvonal * FindPath(struct graf *Graf, char *honnan, char *hova, int lvl)
 	//Kell még ID-ket egyeztetni ut_vonal-ban csúcsokat az élekhez.
 	for (i = 0; i < indulo_csucsok_index; i++)
 	{
-		buffer = ut_vonal[i];	
+		buffer = ut_vonal[i];
 		for (j = 0; j < MAX; j++)
 		{
-			if (buffer->kov != NULL)
+			if (buffer->kov != NULL && buffer->el_id == Graf->elek[j].el_id)
 			{
 				if (Graf->elek[j].kezdet.id == buffer->allomas.id)
 				{
@@ -882,65 +825,131 @@ utvonal * FindPath(struct graf *Graf, char *honnan, char *hova, int lvl)
 			}
 		}
 	}
-
-	printf("\n%d közvetlen járatot találtam!\n\n", (kozvetlen_jarat_index));
-
+	if(kozvetlen_jarat_index > 0) printf("\n%s és %s között közlekedõ járatok:\n", kozvetlen[0]->kezdet.allomas, kozvetlen[0]->veg.allomas);
 	for (i = 0; i < kozvetlen_jarat_index; i++)
-	{
-		printf("Honnan: %s (%s)\n", kozvetlen[i]->kezdet.allomas, kozvetlen[i]->kezdet.country);
+	{		
+		printf("\nHonnan: %s (%s)\n", kozvetlen[i]->kezdet.allomas, kozvetlen[i]->kezdet.country);
 		printf("Hová: %s (%s)\n", kozvetlen[i]->veg.allomas, kozvetlen[i]->veg.country);
 		printf("Indulás: %d:%d\n", kozvetlen[i]->indulas.tm_hour, kozvetlen[i]->indulas.tm_min);
 		printf("Érkezés: %d:%d\n", kozvetlen[i]->erkezes.tm_hour, kozvetlen[i]->erkezes.tm_min);
-		printf("Idõeltolodás: GMT %s%d\n", (kozvetlen[i]->idoeltolodas>0 ? "+" : ""), kozvetlen[i]->idoeltolodas);
+		printf("Idõeltolodás: GMT %s%d\n", (kozvetlen[i]->idoeltolodas > 0 ? "+" : ""), kozvetlen[i]->idoeltolodas);
 		printf("Távolság: %.2f km\n", kozvetlen[i]->tavolsag);
-		printf("Osztályok: %s\n\n", kozvetlen[i]->osztalyok);
+		printf("Osztályok: %s\n", kozvetlen[i]->osztalyok);
 	}
-
-	//Kerulo_kereses(Graf, ut_vonal, honnan, hova, --lvl);	
-	
-	return ut_vonal;
+	return kozvetlen_jarat_index;
 }
 //Útvonaltervezés
 void utvonaltervezes(Data *lista){
-	char honnan[MAX];
-	int honnan_id;
-	int hova_id;
-	int i;
+	char honnan[MAX];						//innen indulna az ügyfél
 	char hova[MAX];
-	char seged[MAX];
-	int max_atszallasok = 10;
-	int *lvl;
-	char * utvonal_end = "";
-	Data *iter;
+	char erintve[MAX];
 
+	int i;
+	int van_indulo_orszag = 0;				//A bevitel ellenörzésére szolgál
+	int van_erkezo_orszag = 0;				//A bevitel ellenörzésére szolgál
+	int van_erinto_orszag = 0;				//A bevitel ellenörzésére szolgál
+
+	char seged[MAX];
+	int lvl=0;
+	Data *iter;
 	graf *Graf = malloc((graf*)sizeof(graf));
-	
+
 
 
 	FillGraph(Graf, lista);
 
-	
 
-	printf("Kerem adja meg az induló ország nevét: ");
-	getline(honnan, MAX - 1);
-	printf("Kerem adja meg az érkezõ ország nevét: ");
-	getline(hova, MAX - 1);
-	do{
-		printf("Kerem adja meg az átszállások maximális számát (hagyja üresen, ha nincs kikötés): ");
-		getline(seged, 9);	//Bekérjük a számot, addig amíg nem egész
-		if (egesze(seged) != 1 || seged == "")
-		{
-			printf("Hibás járatszám ! Kérem adja meg újra !\n\n");
-		}
-	} while (egesze(seged) != 1 || seged == "");
-	if (egesze(seged) == 1)
+	do
 	{
-		max_atszallasok = atoi(seged);
+		printf("Kerem adja meg az induló állomást:\n>");
+		getline(honnan, MAX - 1);
+		strcpy(honnan, kisbetusito(honnan));
+		for (iter = lista; iter->kov != NULL; iter = iter->kov)
+		{
+			if (!(strcmp(kisbetusito(iter->repter1), honnan)))
+			{
+				van_indulo_orszag = 1;
+			}
+		}
+
+		if (van_indulo_orszag == 0)
+		{
+			printf("\nNincs ilyen induló állomás!\n\n");
+		}
+	} while (van_indulo_orszag == 0 && strlen(honnan) < 1);
+
+
+
+
+	do
+	{
+		printf("Kerem adja meg az érinteni kívánt állomást (Ha közvetlen járatot keres, hagyja üresen):\n>");
+		getline(erintve, MAX - 1);
+		strcpy(erintve, kisbetusito(erintve));
+		for (iter = lista; iter->kov != NULL; iter = iter->kov)
+		{
+			if (strlen(erintve) > 0)
+			{
+				if (strcmp(kisbetusito(iter->repter1), erintve) == 0)
+				{
+					van_erinto_orszag = 1;
+				}
+			}
+			else
+			{
+				van_erinto_orszag = 1;
+			}
+		}
+
+		if (van_erinto_orszag == 0)
+		{
+			printf("\nNincs ilyen állomás!\n\n");
+		}
+
+	} while (van_erinto_orszag == 0);
+
+
+
+
+
+	do
+	{
+		printf("\nKerem adja meg az érkezõ állomást:\n>");
+		getline(hova, MAX - 1);
+		strcpy(hova, kisbetusito(hova));
+		for (iter = lista; iter->kov != NULL; iter = iter->kov)
+		{
+			if (!(strcmp(kisbetusito(iter->repter2), hova)))
+			{
+				van_erkezo_orszag = 1;
+			}
+		}
+
+		if (van_erkezo_orszag == 0)
+		{
+			printf("\nNincs ilyen érkezõ állomás!\n\n");
+		}
+	} while (van_erkezo_orszag == 0 && strlen(hova) < 1);
+
+	strcpy(honnan, kisbetusito(honnan));
+	strcpy(hova, kisbetusito(hova));
+	printf("\nTalálatok:\n");
+	if (strlen(erintve) > 0)
+	{
+		lvl = FindPath(Graf, honnan, erintve);
+		lvl = lvl+FindPath(Graf, erintve, hova);
+
 	}
-	lvl = &max_atszallasok;
+	else
+	{
+		lvl = FindPath(Graf, honnan, hova);
+	}
 
-
-	FindPath(Graf, kisbetusito(honnan), kisbetusito(hova), *lvl);
+	if (lvl == 0)
+	{
+		printf("\nSajnos közvetlen járatot nem találtam, de az alábbi helyeken átszállási lehetõség van.\n\n");
+		Kozos_pontok(Graf, honnan, hova);
+	}
 
 	free(Graf);
 }
