@@ -52,7 +52,7 @@ typedef struct el { // a gráf egy éléhez tartozó információk
 
 //Egész hálózat
 typedef struct graf { // a teljes gráf 
-	csucs csucsok[22];
+	csucs csucsok[21];
 	el elek[MAX];
 }graf;
 
@@ -600,13 +600,20 @@ void idopontkereses(Data *lista)
 	}
 }
 
+float jegyar_kalkulator(int km, int osztaly)
+{
+	int kerozin_ar = 600;
+	int fogasztas = 15;
 
+	float jegyar = (km / 100)*fogasztas*kerozin_ar*(4-osztaly)*1.37;
 
+	return jegyar;
+}
 
 graf * FillGraph(struct graf *Graf, Data *lista)
 {
 	Data *iter= (Data*)malloc(sizeof(Data));
-	csucs csucsok[22];
+	csucs csucsok[21];
 	int csucs_check = 1;
 	csucs csucs_buff;
 	csucs csucs_buff2;
@@ -641,7 +648,7 @@ graf * FillGraph(struct graf *Graf, Data *lista)
 	i = 0;
 	for (iter = lista; iter != NULL; iter = iter->kov)
 	{
-		for (j = 0; j < 22; j++)
+		for (j = 0; j < 21; j++)
 		{
 			if (strcmp(csucsok[j].allomas, iter->repter1) == 0)
 			{
@@ -653,7 +660,7 @@ graf * FillGraph(struct graf *Graf, Data *lista)
 		strcpy(csucs_buff.country, iter->repter1_country);
 		elek[i].kezdet = csucs_buff;
 
-		for (j = 0; j < 22; j++)
+		for (j = 0; j < 21; j++)
 		{
 			if (strcmp(csucsok[j].allomas, iter->repter2) == 0)
 			{
@@ -678,7 +685,7 @@ graf * FillGraph(struct graf *Graf, Data *lista)
 		Graf->elek[i] = elek[i];
 	}
 	
-	for (i = 0; i < 22; i++)
+	for (i = 0; i < 21; i++)
 	{
 		Graf->csucsok[i] = csucsok[i];
 	}
@@ -748,14 +755,14 @@ int Kozos_pontok(struct graf *Graf, char *honnan, char *hova)
 	return counter;
 }
 
-int FindPath(struct graf *Graf, char *honnan, char *hova)
+int FindPath(struct graf *Graf, char *honnan, char *hova, int return_type)
 {
 	utvonal *ut_vonal[MAX];
 	utvonal *buffer, *iter;
 	el *kozvetlen[MAX];
 
 	char hova2[MAX];
-
+	char *p;
 	int indulo_csucsok_index = 0;
 	int kozvetlen_jarat_index = 0;
 	int i, j;
@@ -825,16 +832,40 @@ int FindPath(struct graf *Graf, char *honnan, char *hova)
 			}
 		}
 	}
-	if(kozvetlen_jarat_index > 0) printf("\n%s és %s között közlekedõ járatok:\n", kozvetlen[0]->kezdet.allomas, kozvetlen[0]->veg.allomas);
-	for (i = 0; i < kozvetlen_jarat_index; i++)
-	{		
-		printf("\nHonnan: %s (%s)\n", kozvetlen[i]->kezdet.allomas, kozvetlen[i]->kezdet.country);
-		printf("Hová: %s (%s)\n", kozvetlen[i]->veg.allomas, kozvetlen[i]->veg.country);
-		printf("Indulás: %d:%d\n", kozvetlen[i]->indulas.tm_hour, kozvetlen[i]->indulas.tm_min);
-		printf("Érkezés: %d:%d\n", kozvetlen[i]->erkezes.tm_hour, kozvetlen[i]->erkezes.tm_min);
-		printf("Idõeltolodás: GMT %s%d\n", (kozvetlen[i]->idoeltolodas > 0 ? "+" : ""), kozvetlen[i]->idoeltolodas);
-		printf("Távolság: %.2f km\n", kozvetlen[i]->tavolsag);
-		printf("Osztályok: %s\n", kozvetlen[i]->osztalyok);
+	if (return_type == 0)
+	{
+		if (kozvetlen_jarat_index > 0) printf("\n%s és %s között közlekedõ járatok:\n", kozvetlen[0]->kezdet.allomas, kozvetlen[0]->veg.allomas);
+		for (i = 0; i < kozvetlen_jarat_index; i++)
+		{
+			printf("\nHonnan: %s (%s)\n", kozvetlen[i]->kezdet.allomas, kozvetlen[i]->kezdet.country);
+			printf("Hová: %s (%s)\n", kozvetlen[i]->veg.allomas, kozvetlen[i]->veg.country);
+			printf("Indulás: %d:%d\n", kozvetlen[i]->indulas.tm_hour, kozvetlen[i]->indulas.tm_min);
+			printf("Érkezés: %d:%d\n", kozvetlen[i]->erkezes.tm_hour, kozvetlen[i]->erkezes.tm_min);
+			printf("Idõeltolodás: GMT %s%d\n", (kozvetlen[i]->idoeltolodas > 0 ? "+" : ""), kozvetlen[i]->idoeltolodas);
+			printf("Távolság: %.2f km\n", kozvetlen[i]->tavolsag);
+			printf("Jegyárak:");
+			for (p = strsep(kozvetlen[i]->osztalyok, ","); p != NULL; p = strsep(NULL, ","))
+			{
+				printf("\n%s. osztály: %.2f Ft\n", p, jegyar_kalkulator(kozvetlen[i]->tavolsag, atoi(p)));
+			}
+		}
+	}
+	switch (return_type)
+	{
+	case 0:
+		return kozvetlen_jarat_index;
+		break;
+	case 1:
+		return (kozvetlen[0]->indulas.tm_hour * 60) + (kozvetlen[0]->indulas.tm_min);
+		break;
+	case 2:
+		return (kozvetlen[0]->erkezes.tm_hour * 60) + (kozvetlen[0]->erkezes.tm_min);
+		break;
+	case 3:
+		return kozvetlen[0]->idoeltolodas;
+		break;
+	default:
+		break;
 	}
 	return kozvetlen_jarat_index;
 }
@@ -843,6 +874,7 @@ void utvonaltervezes(Data *lista){
 	char honnan[MAX];						//innen indulna az ügyfél
 	char hova[MAX];
 	char erintve[MAX];
+	struct tm *varakozasi_ido = (struct tm*)malloc(sizeof(struct tm));
 
 	int i;
 	int van_indulo_orszag = 0;				//A bevitel ellenörzésére szolgál
@@ -931,18 +963,33 @@ void utvonaltervezes(Data *lista){
 		}
 	} while (van_erkezo_orszag == 0 && strlen(hova) < 1);
 
-	strcpy(honnan, kisbetusito(honnan));
-	strcpy(hova, kisbetusito(hova));
 	printf("\nTalálatok:\n");
 	if (strlen(erintve) > 0)
 	{
-		lvl = FindPath(Graf, honnan, erintve);
-		lvl = lvl+FindPath(Graf, erintve, hova);
+		lvl = FindPath(Graf, honnan, erintve, 0);
+		if (lvl > 0)
+		{
+			varakozasi_ido->tm_hour = FindPath(Graf, erintve, hova, 1) / 60;
+			varakozasi_ido->tm_hour = varakozasi_ido->tm_hour - FindPath(Graf, honnan, erintve, 2) / 60;
+			if (varakozasi_ido->tm_hour < 0)
+			{
+				varakozasi_ido->tm_hour = 24 + varakozasi_ido->tm_hour;
+			}
+			varakozasi_ido->tm_min = FindPath(Graf, erintve, hova, 1) % 60 - FindPath(Graf, honnan, erintve, 2) % 60;
+			if (varakozasi_ido->tm_min < 0)
+			{
+				varakozasi_ido->tm_min = 60 - varakozasi_ido->tm_min;
+				varakozasi_ido->tm_hour = varakozasi_ido->tm_hour - 1;
+			}
+			printf("\nVárakozási idõ: %d:%d\n", varakozasi_ido->tm_hour, varakozasi_ido->tm_min);
+			printf("Idõ eltolódás: GMT %s%d\n", ((FindPath(Graf, honnan, erintve, 3) + FindPath(Graf, honnan, erintve, 3)) > 0 ? "+" : ""), (FindPath(Graf, honnan, erintve, 3) + FindPath(Graf, honnan, erintve, 3)));
+		}
+		lvl = lvl+FindPath(Graf, erintve, hova, 0);
 
 	}
 	else
 	{
-		lvl = FindPath(Graf, honnan, hova);
+		lvl = FindPath(Graf, honnan, hova, 0);
 	}
 
 	if (lvl == 0)
